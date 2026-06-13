@@ -8,15 +8,19 @@ export function FinalCtaSection() {
 
   return (
     <SectionShell id="contato" className="scroll-mt-0 border-y border-white/10 bg-ink-panel">
-      <Reveal className="relative overflow-hidden px-0 py-10 text-center">
-        <div className="mx-auto mb-10 h-px w-24 bg-accent-red" />
+      <div className="relative overflow-hidden px-0 py-10 text-center">
+        <Reveal y={16} blur={4}>
+          <div className="mx-auto mb-10 h-px w-24 bg-accent-red" />
+        </Reveal>
+        <Reveal delay={0.1} y={30} blur={8}>
         <h2 className="mx-auto max-w-6xl font-display text-6xl uppercase leading-[0.9] text-white sm:text-7xl lg:text-8xl">
           {finalCta.title}
         </h2>
-        <div className="mt-12">
+        </Reveal>
+        <Reveal delay={0.22} y={18} blur={5} className="mt-12">
           <ButtonLink href={whatsappUrl}>{finalCta.cta}</ButtonLink>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </SectionShell>
   );
 }

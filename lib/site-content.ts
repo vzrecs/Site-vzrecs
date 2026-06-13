@@ -1,8 +1,11 @@
 import { imageAssets, videoAssets } from "@/lib/assets";
 
+export const whatsappBudgetUrl =
+  "https://wa.me/5535984232883?text=Vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20%F0%9F%98%8A";
+
 export const siteContent = {
   brand: "Vz Recs",
-  whatsappUrl: "https://wa.me/",
+  whatsappUrl: whatsappBudgetUrl,
   hero: {
     eyebrow: "Produção audiovisual premium",
     title:

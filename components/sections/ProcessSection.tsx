@@ -1,5 +1,5 @@
 import { siteContent } from "@/lib/site-content";
-import { Reveal } from "@/components/ui/Reveal";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/Reveal";
 import { SectionShell } from "@/components/ui/SectionShell";
 
 export function ProcessSection() {
@@ -23,9 +23,9 @@ export function ProcessSection() {
             </h2>
           </Reveal>
 
-          <div className="grid gap-5 md:grid-cols-2">
+          <RevealGroup className="grid gap-5 md:grid-cols-2" delay={0.06} stagger={0.075}>
             {process.steps.map((step, index) => (
-              <Reveal key={step.title} delay={index * 0.05}>
+              <RevealItem key={step.title}>
                 <article className="group relative min-h-[135px] overflow-hidden rounded-[18px] border border-white/[0.12] bg-white/[0.055] p-4 shadow-[0_28px_100px_rgba(0,0,0,0.34)] backdrop-blur-[30px] transition duration-300 before:pointer-events-none before:absolute before:inset-px before:rounded-[17px] before:bg-gradient-to-br before:from-white/[0.22] before:via-white/[0.055] before:to-transparent before:opacity-90 after:pointer-events-none after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_14%_0%,rgba(255,255,255,0.18),transparent_32%),radial-gradient(circle_at_88%_24%,rgba(255,35,35,0.1),transparent_30%)] hover:-translate-y-1 hover:border-white/[0.2] hover:bg-white/[0.075] hover:shadow-[0_34px_120px_rgba(0,0,0,0.42)]">
                   <div className="relative flex h-full flex-col justify-center">
                     <div className="flex items-baseline gap-2">
@@ -42,9 +42,9 @@ export function ProcessSection() {
                     </p>
                   </div>
                 </article>
-              </Reveal>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </div>
     </SectionShell>

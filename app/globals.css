@@ -104,3 +104,24 @@ video {
   animation: hero-word-write 5.2s steps(9, end) infinite;
   will-change: clip-path;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-word-write__text {
+    animation: none;
+    clip-path: inset(0 0 0 0);
+    will-change: auto;
+  }
+}

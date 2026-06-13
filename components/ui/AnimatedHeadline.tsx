@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 type AnimatedHeadlineProps = {
   text: string;
@@ -8,6 +8,7 @@ type AnimatedHeadlineProps = {
 };
 
 export function AnimatedHeadline({ text, className = "" }: AnimatedHeadlineProps) {
+  const shouldReduceMotion = useReducedMotion();
   const words = text.split(" ");
 
   return (
@@ -20,11 +21,15 @@ export function AnimatedHeadline({ text, className = "" }: AnimatedHeadlineProps
           >
             <motion.span
               className="inline-block"
-              initial={{ y: "0.28em", opacity: 0, filter: "blur(4px)" }}
+              initial={
+                shouldReduceMotion
+                  ? false
+                  : { y: "0.28em", opacity: 0, filter: "blur(4px)" }
+              }
               animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
               transition={{
-                duration: 0.88,
-                delay: 0.06 + index * 0.032,
+                duration: shouldReduceMotion ? 0.01 : 0.88,
+                delay: shouldReduceMotion ? 0 : 0.06 + index * 0.032,
                 ease: [0.22, 1, 0.36, 1]
               }}
             >

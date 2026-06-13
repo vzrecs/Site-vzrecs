@@ -12,8 +12,13 @@ export function ButtonLink({
   children,
   variant = "primary",
   className = "",
+  target,
+  rel,
   ...props
 }: ButtonLinkProps) {
+  const opensInNewTab = target === "_blank" || href.startsWith("https://wa.me/");
+  const linkTarget = opensInNewTab ? "_blank" : target;
+  const linkRel = opensInNewTab ? "noopener noreferrer" : rel;
   const styles =
     variant === "primary"
       ? "border-accent-red bg-accent-red text-white hover:-translate-y-0.5 hover:bg-accent-red hover:shadow-[0_14px_38px_rgba(255,35,35,0.22)]"
@@ -22,6 +27,8 @@ export function ButtonLink({
   return (
     <Link
       href={href}
+      target={linkTarget}
+      rel={linkRel}
       className={`inline-flex min-h-12 items-center justify-center rounded-card border px-6 text-sm font-bold uppercase transition duration-300 ${styles} ${className}`}
       {...props}
     >

@@ -24,7 +24,8 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-ink-black via-transparent to-transparent" />
 
       <div className="relative z-10 flex min-h-[calc(100svh-8rem)] w-full flex-col justify-center pb-20 pt-8 lg:pl-8 xl:pl-10 2xl:pl-12">
-        <Reveal className="max-w-[840px]">
+        <div className="max-w-[840px]">
+          <Reveal duration={1} y={28} blur={10}>
           <h1
             className="max-w-[900px] font-display text-[3.15rem] uppercase leading-[0.9] text-white [text-shadow:none] sm:text-[4.45rem] lg:text-[6.2rem] xl:text-[6.85rem]"
             aria-label={hero.title}
@@ -38,21 +39,30 @@ export function HeroSection() {
             </span>{" "}
             sua marca em outro nível
           </h1>
-          <div className="mt-7 max-w-[780px] space-y-4 text-justify text-base font-medium leading-7 text-ink-muted sm:text-[1.03rem] lg:text-[1.08rem]">
-            {hero.subtitles.map((subtitle) => (
-              <p key={subtitle}>{subtitle}</p>
-            ))}
-          </div>
-        </Reveal>
+          </Reveal>
+          <Reveal delay={0.16} duration={0.82} y={22} blur={6}>
+            <div className="mt-7 max-w-[780px] space-y-4 text-justify text-base font-medium leading-7 text-ink-muted sm:text-[1.03rem] lg:text-[1.08rem]">
+              {hero.subtitles.map((subtitle) => (
+                <p key={subtitle}>{subtitle}</p>
+              ))}
+            </div>
+          </Reveal>
+        </div>
 
-        <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:flex-row">
+        <Reveal
+          delay={0.28}
+          duration={0.72}
+          y={18}
+          blur={5}
+          className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:flex-row"
+        >
           <ButtonLink
             href={whatsappUrl}
             className="min-h-14 min-w-[280px] px-9 text-base shadow-[0_22px_60px_rgba(255,35,35,0.28)]"
           >
             {hero.primaryCta}
           </ButtonLink>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

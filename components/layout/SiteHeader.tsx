@@ -22,16 +22,22 @@ export function SiteHeader() {
         </Link>
 
         <nav className="ml-auto hidden items-center justify-end gap-8 lg:flex xl:gap-10" aria-label="Principal">
-          {navigationItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="group relative py-2 font-body text-sm font-bold uppercase tracking-[0.04em] text-white/[0.76] transition duration-300 hover:text-white xl:text-base"
-            >
-              <span>{item.label}</span>
-              <span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-accent-red opacity-80 transition duration-300 group-hover:scale-x-100" />
-            </Link>
-          ))}
+          {navigationItems.map((item) => {
+            const opensInNewTab = item.href.startsWith("https://");
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                target={opensInNewTab ? "_blank" : undefined}
+                rel={opensInNewTab ? "noopener noreferrer" : undefined}
+                className="group relative py-2 font-body text-sm font-bold uppercase tracking-[0.04em] text-white/[0.76] transition duration-300 hover:text-white xl:text-base"
+              >
+                <span>{item.label}</span>
+                <span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-accent-red opacity-80 transition duration-300 group-hover:scale-x-100" />
+              </Link>
+            );
+          })}
         </nav>
 
       </div>
