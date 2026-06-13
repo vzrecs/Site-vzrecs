@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Bebas Neue Bold", "Bebas Neue", "Arial Narrow", Impact, sans-serif;
+  --font-body: "Inter", "Segoe UI", Arial, sans-serif;
+  --background: #050505;
+  --foreground: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  background: var(--background);
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 35, 35, 0.08), transparent 24rem),
+    var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-synthesis: none;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  text-shadow: 0 12px 36px rgba(0, 0, 0, 0.48);
+  text-wrap: balance;
+}
+
+p,
+a,
+button {
+  letter-spacing: 0;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #ff2323;
+  color: #ffffff;
+}
+
+@keyframes hero-word-write {
+  0%,
+  10% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  36%,
+  76% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  94%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+.hero-word-write {
+  position: relative;
+  display: inline-block;
+  color: transparent;
+  font-style: italic;
+}
+
+.hero-word-write__ghost {
+  opacity: 0;
+}
+
+.hero-word-write__text {
+  position: absolute;
+  inset: 0;
+  animation: hero-word-write 5.2s steps(9, end) infinite;
+  will-change: clip-path;
+}
