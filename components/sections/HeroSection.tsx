@@ -41,7 +41,7 @@ export function HeroSection() {
           </h1>
           </Reveal>
           <Reveal delay={0.16} duration={0.82} y={22} blur={6}>
-            <div className="mt-7 max-w-[780px] space-y-4 text-justify text-base font-medium leading-7 text-ink-muted sm:text-[1.03rem] lg:text-[1.08rem]">
+            <div className="mt-7 max-w-[780px] space-y-4 text-left text-base font-medium leading-7 text-ink-muted sm:text-[1.03rem] lg:text-justify lg:text-[1.08rem]">
               {hero.subtitles.map((subtitle) => (
                 <p key={subtitle}>{subtitle}</p>
               ))}
