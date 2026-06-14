@@ -4,19 +4,21 @@ type SectionShellProps = {
   id?: string;
   children: ReactNode;
   className?: string;
+  innerClassName?: string;
 };
 
 export function SectionShell({
   id,
   children,
-  className = ""
+  className = "",
+  innerClassName = "max-w-site"
 }: SectionShellProps) {
   return (
     <section
       id={id}
-      className={`flex min-h-[100svh] items-center px-5 py-20 sm:px-8 lg:py-28 ${className}`}
+      className={`flex min-h-[92svh] items-center px-5 py-16 sm:px-8 lg:py-24 ${className}`}
     >
-      <div className="relative z-10 mx-auto w-full max-w-site">{children}</div>
+      <div className={`relative z-10 mx-auto w-full ${innerClassName}`}>{children}</div>
     </section>
   );
 }

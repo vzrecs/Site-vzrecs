@@ -14,7 +14,7 @@ const config: Config = {
           graphite: "#111111",
           panel: "#1A1A1A",
           line: "rgba(255,255,255,0.1)",
-          muted: "#B8B8B8"
+          muted: "rgba(255,255,255,0.86)"
         },
         accent: {
           red: "#FF2323"
@@ -25,7 +25,7 @@ const config: Config = {
         body: ["var(--font-body)", "Inter", "Arial", "sans-serif"]
       },
       maxWidth: {
-        site: "1180px"
+        site: "1080px"
       },
       borderRadius: {
         card: "8px"

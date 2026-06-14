@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Bebas_Neue, Inter } from "next/font/google";
+import { Anton, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
-const bebasNeue = Bebas_Neue({
+const anton = Anton({
   subsets: ["latin"],
   weight: "400",
-  variable: "--font-bebas",
+  variable: "--font-anton",
   display: "swap"
 });
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${bebasNeue.variable} ${inter.variable}`}>
+    <html lang="pt-BR" className={`${anton.variable} ${inter.variable}`}>
       <body>
         <SiteHeader />
         {children}

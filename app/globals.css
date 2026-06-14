@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --font-display: var(--font-bebas), "Arial Narrow", Impact, sans-serif;
+  --font-display: var(--font-anton), "Arial Narrow", Impact, sans-serif;
   --font-body: var(--font-inter), "Segoe UI", Arial, sans-serif;
   --background: #050505;
   --foreground: #ffffff;
@@ -49,7 +49,7 @@ h5,
 h6 {
   font-family: var(--font-display);
   font-weight: 400;
-  letter-spacing: 0;
+  letter-spacing: -0.006em;
   text-transform: uppercase;
   text-shadow: 0 12px 36px rgba(0, 0, 0, 0.48);
   text-wrap: balance;

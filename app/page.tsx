@@ -12,11 +12,11 @@ export default function Home() {
     <main>
       <HeroSection />
       <PositioningSection />
-      <ProcessSection />
       <PortfolioSection />
       <ServicesSection />
       <AboutSection />
       <DifferentialsSection />
+      <ProcessSection />
       <FinalCtaSection />
     </main>
   );

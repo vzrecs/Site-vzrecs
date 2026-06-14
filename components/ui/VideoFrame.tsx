@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { SeamlessVideo } from "@/components/ui/SeamlessVideo";
 
 type VideoFrameProps = {
   src: string;
@@ -8,35 +8,17 @@ type VideoFrameProps = {
 };
 
 export function VideoFrame({ src, aspect = "vertical" }: VideoFrameProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const aspectClass = aspect === "vertical" ? "aspect-[9/16]" : "aspect-[16/10]";
   const widthClass = aspect === "vertical" ? "mx-auto w-full max-w-[320px]" : "w-full";
 
-  useEffect(() => {
-    const video = videoRef.current;
-
-    if (!video) {
-      return;
-    }
-
-    video.muted = true;
-    video.load();
-    void video.play().catch(() => undefined);
-  }, []);
-
   return (
     <div className={`${widthClass} overflow-hidden rounded-[12px]`}>
-      <video
-        ref={videoRef}
+      <SeamlessVideo
+        src={src}
         className={`${aspectClass} w-full object-cover`}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+        loopStart={0.18}
+        loopBeforeEnd={0.55}
+      />
     </div>
   );
 }
