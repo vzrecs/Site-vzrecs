@@ -12,8 +12,8 @@ export function PositioningSection() {
       className="relative scroll-mt-0 overflow-hidden bg-ink-black"
     >
       <div className="relative z-10 grid items-center gap-9 lg:grid-cols-[minmax(320px,380px)_minmax(0,560px)] lg:justify-center lg:gap-12 xl:gap-16">
-        <div className="max-w-[560px] lg:order-2">
-          <Reveal y={30} blur={8}>
+        <div className="contents lg:order-2 lg:block lg:max-w-[560px]">
+          <Reveal y={30} blur={8} className="order-1 w-[min(82vw,340px)] justify-self-center text-center lg:w-auto lg:max-w-[560px] lg:justify-self-auto lg:text-left">
           <h2
             className="max-w-[560px] font-display text-6xl uppercase leading-[0.9] tracking-[-0.006em] text-white sm:text-7xl lg:text-[5.15rem] xl:text-[5.55rem]"
             aria-label={positioning.title}
@@ -21,8 +21,8 @@ export function PositioningSection() {
             Sua marca
           </h2>
           </Reveal>
-          <Reveal delay={0.12} y={22} blur={6}>
-            <div className="mt-7 max-w-[540px] space-y-7 whitespace-pre-line text-justify text-[1.04rem] leading-7 text-ink-muted [text-align-last:left] lg:text-[1.14rem] lg:leading-8">
+          <Reveal delay={0.12} y={22} blur={6} className="order-3 max-w-[560px]">
+            <div className="max-w-[540px] space-y-7 whitespace-pre-line text-justify text-[1.04rem] leading-7 text-ink-muted [text-align-last:left] lg:mt-7 lg:text-[1.14rem] lg:leading-8">
               <p>{positioning.body}</p>
               <p>
                 {positioning.support.split("\n\n")[0]}
@@ -38,7 +38,7 @@ export function PositioningSection() {
           x={18}
           y={24}
           scale={0.985}
-          className="w-[min(82vw,340px)] max-w-none justify-self-center lg:order-1 lg:w-[380px]"
+          className="order-2 w-[min(82vw,340px)] max-w-none justify-self-center lg:order-1 lg:w-[380px]"
         >
           <div className="lg:-translate-x-10 xl:translate-x-0">
             <VideoFrame src="/assets/videos/sua-marca-v2.mp4" />
