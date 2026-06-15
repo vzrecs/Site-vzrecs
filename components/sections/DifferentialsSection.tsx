@@ -23,9 +23,26 @@ const carouselLoop = [...carouselPhotos, ...carouselPhotos];
 
 export function DifferentialsSection() {
   const shouldReduceMotion = useReducedMotion();
+  const compactGroups = [carouselPhotos, carouselPhotos] as const;
+  const compactAnimation = shouldReduceMotion
+    ? undefined
+    : "vz-photo-marquee-compact 44s linear infinite";
 
   return (
     <SectionShell id="portfolio" className="relative scroll-mt-0 overflow-hidden bg-ink-black">
+      <style>
+        {`
+          @keyframes vz-photo-marquee-compact {
+            from {
+              transform: translate3d(0, 0, 0);
+            }
+
+            to {
+              transform: translate3d(-50%, 0, 0);
+            }
+          }
+        `}
+      </style>
       <div className="pointer-events-none absolute inset-x-0 -top-20 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent lg:-top-32" />
       <Reveal className="relative z-10 mx-auto mb-12 max-w-[720px] text-center lg:mb-16">
         <h2 className="font-display text-6xl uppercase leading-[0.9] tracking-[-0.006em] text-white [text-shadow:none] sm:text-7xl lg:text-[5.7rem]">
@@ -33,36 +50,33 @@ export function DifferentialsSection() {
         </h2>
       </Reveal>
       <Reveal className="relative left-1/2 z-10 w-screen -translate-x-1/2 overflow-hidden xl:hidden">
-        <motion.div
+        <div
           className="flex w-max"
-          animate={shouldReduceMotion ? undefined : { x: ["0vw", `-${carouselPhotos.length * 100}vw`] }}
-          transition={{
-            duration: 38,
-            ease: "linear",
-            repeat: Infinity,
-            repeatType: "loop"
-          }}
+          style={{ animation: compactAnimation }}
         >
-          {carouselLoop.map((photo, index) => (
+          {compactGroups.map((group, groupIndex) => (
             <div
-              key={`compact-${photo}-${index}`}
-              className="flex w-screen shrink-0 justify-center"
+              key={`compact-group-${groupIndex}`}
+              className="flex shrink-0 gap-4 pr-4 sm:gap-5 sm:pr-5 lg:gap-6 lg:pr-6"
             >
-              <div className="relative aspect-[9/16] w-[78vw] overflow-hidden rounded-[6px] bg-ink-panel shadow-cinematic sm:w-[66vw] lg:w-[430px]">
-                <div className="absolute inset-0">
+              {group.map((photo, photoIndex) => (
+                <div
+                  key={`compact-${photo}-${groupIndex}`}
+                  className="relative aspect-[9/16] w-[78vw] shrink-0 overflow-hidden rounded-[6px] bg-ink-panel shadow-cinematic sm:w-[44vw] lg:w-[31vw]"
+                >
                   <Image
                     src={photo}
                     alt="Portfólio fotográfico da VZ RECS"
                     fill
-                    sizes="(min-width: 1024px) 430px, (min-width: 640px) 66vw, 78vw"
+                    sizes="(min-width: 1024px) 31vw, (min-width: 640px) 44vw, 78vw"
                     className="object-cover"
-                    priority={index < 4}
+                    priority={groupIndex === 0 && photoIndex < 4}
                   />
                 </div>
-              </div>
+              ))}
             </div>
           ))}
-        </motion.div>
+        </div>
       </Reveal>
       <Reveal className="relative z-10 mx-auto hidden w-full max-w-[920px] overflow-hidden xl:block">
         <motion.div
