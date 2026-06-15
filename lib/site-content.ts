@@ -11,7 +11,7 @@ export const siteContent = {
     title:
       "Vídeos comerciais que posicionam sua marca em outro nível",
     subtitles: [
-      "Há cerca de um ano criando conteúdos visuais com planejamento, direção e uma entrega que impressiona pela estética e pelo profissionalismo."
+      "Criamos conteúdos visuais com planejamento, direção e uma entrega que impressiona pela estética e pelo profissionalismo em cada etapa do processo."
     ],
     primaryCta: "Solicitar orçamento",
     secondaryCta: "Sobre nós",
@@ -38,7 +38,7 @@ export const siteContent = {
     eyebrow: "Sobre",
     title: "Sobre nós",
     paragraphs: [
-      "Há pouco mais de um ano no mercado, seguimos em crescimento constante, aprimorando nosso trabalho a cada projeto. Unimos direção visual, captação, edição e estratégia para criar conteúdos que aumentam a percepção de valor da marca e fortalecem sua presença no mercado."
+      "Em constante evolução, unimos direção visual, captação, edição e estratégia para criar conteúdos que elevam a percepção de valor da marca e fortalecem sua presença no mercado."
     ],
     image: imageAssets.about
   },
@@ -83,7 +83,7 @@ export const siteContent = {
     eyebrow: "Serviços",
     title: "Fotografia",
     subtitle: [
-      "Fotografamos com direção, sensibilidade e atenção aos detalhes para registrar não só o que aconteceu, mas a emoção de cada instante.\n\nDe eventos a ensaios, criamos imagens com estética, verdade e presença.\n\n- Ensaios fotográficos\n- Eventos e celebrações\n- Registros profissionais"
+      "Fotografamos com direção, sensibilidade e atenção aos detalhes para registrar não só o que aconteceu, mas a emoção de cada instante.\n\n- Ensaios fotográficos\n- Eventos e celebrações\n- Registros profissionais"
     ],
     items: [
       {

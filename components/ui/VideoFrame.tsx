@@ -9,7 +9,7 @@ type VideoFrameProps = {
 
 export function VideoFrame({ src, aspect = "vertical" }: VideoFrameProps) {
   const aspectClass = aspect === "vertical" ? "aspect-[9/16]" : "aspect-[16/10]";
-  const widthClass = aspect === "vertical" ? "mx-auto w-full max-w-[320px]" : "w-full";
+  const widthClass = aspect === "vertical" ? "mx-auto w-full" : "w-full";
 
   return (
     <div className={`${widthClass} overflow-hidden rounded-[12px]`}>

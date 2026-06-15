@@ -29,7 +29,7 @@ export function MediaFrame({
         alt={alt}
         fill
         priority={priority}
-        sizes="(min-width: 1024px) 520px, 92vw"
+        sizes="(min-width: 1024px) 380px, 82vw"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />

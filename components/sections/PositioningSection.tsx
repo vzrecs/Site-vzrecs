@@ -9,9 +9,9 @@ export function PositioningSection() {
   return (
     <SectionShell
       id="posicionamento"
-      className="relative overflow-hidden bg-ink-black"
+      className="relative scroll-mt-0 overflow-hidden bg-ink-black"
     >
-      <div className="relative z-10 grid items-start gap-9 lg:grid-cols-[minmax(260px,320px)_minmax(0,560px)] lg:justify-center lg:gap-14 xl:gap-16">
+      <div className="relative z-10 grid items-center gap-9 lg:grid-cols-[minmax(320px,380px)_minmax(0,560px)] lg:justify-center lg:gap-12 xl:gap-16">
         <div className="max-w-[560px] lg:order-2">
           <Reveal y={30} blur={8}>
           <h2
@@ -26,7 +26,7 @@ export function PositioningSection() {
               <p>{positioning.body}</p>
               <p>
                 {positioning.support.split("\n\n")[0]}
-                <span className="mt-5 block whitespace-pre-line text-white">
+                <span className="mt-5 block whitespace-pre-line">
                   {positioning.support.split("\n\n")[1]}
                 </span>
               </p>
@@ -38,9 +38,11 @@ export function PositioningSection() {
           x={18}
           y={24}
           scale={0.985}
-          className="w-full max-w-[320px] justify-self-center lg:order-1"
+          className="w-[min(82vw,340px)] max-w-none justify-self-center lg:order-1 lg:w-[380px]"
         >
-          <VideoFrame src="/assets/videos/sua-marca-v2.mp4" />
+          <div className="lg:-translate-x-10 xl:translate-x-0">
+            <VideoFrame src="/assets/videos/sua-marca-v2.mp4" />
+          </div>
         </Reveal>
       </div>
     </SectionShell>

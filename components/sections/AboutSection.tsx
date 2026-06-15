@@ -8,24 +8,28 @@ export function AboutSection() {
   const { about, whatsappUrl } = siteContent;
 
   return (
-    <SectionShell id="sobre" className="relative scroll-mt-0 bg-ink-black">
-      <div className="grid items-start gap-9 lg:grid-cols-[minmax(0,560px)_minmax(260px,320px)] lg:justify-center lg:gap-14 xl:gap-16">
-        <div className="max-w-[560px]">
-          <Reveal y={30} blur={8}>
-          <h2
-            className="max-w-[560px] font-display text-6xl uppercase leading-[0.9] tracking-[-0.006em] text-white sm:text-7xl lg:text-[5.15rem] xl:text-[5.55rem]"
-            aria-label={about.title}
-          >
-            Sobre nós
-          </h2>
-          </Reveal>
-          <Reveal delay={0.12} y={22} blur={6}>
-            <div className="mt-7 max-w-[540px] space-y-5 text-justify text-[1.04rem] leading-7 text-ink-muted [text-align-last:left] lg:text-[1.14rem] lg:leading-8">
-              {about.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            <div className="mt-14">
+    <SectionShell id="sobre" className="relative scroll-mt-0 overflow-hidden bg-ink-black">
+      <div className="grid items-center gap-9 lg:grid-cols-[minmax(0,560px)_minmax(320px,380px)] lg:justify-center lg:gap-12 xl:gap-16">
+        <div className="max-w-[560px] lg:flex lg:self-stretch lg:flex-col">
+          <div className="lg:flex lg:flex-1 lg:flex-col lg:justify-center">
+            <Reveal y={30} blur={8}>
+            <h2
+              className="max-w-[560px] font-display text-6xl uppercase leading-[0.9] tracking-[-0.006em] text-white sm:text-7xl lg:text-[5.15rem] xl:text-[5.55rem]"
+              aria-label={about.title}
+            >
+              Sobre nós
+            </h2>
+            </Reveal>
+            <Reveal delay={0.12} y={22} blur={6}>
+              <div className="mt-7 max-w-[540px] space-y-5 text-justify text-[1.04rem] leading-7 text-ink-muted [text-align-last:left] lg:text-[1.14rem] lg:leading-8">
+                {about.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={0.16} y={18} blur={5}>
+            <div className="mt-14 lg:mt-0">
               <Link
                 href={whatsappUrl}
                 target="_blank"
@@ -42,9 +46,11 @@ export function AboutSection() {
           x={18}
           y={24}
           scale={0.985}
-          className="w-full max-w-[320px] justify-self-center"
+          className="w-[min(82vw,340px)] max-w-none justify-self-center lg:w-[380px]"
         >
-          <MediaFrame src={about.image} alt="Retrato da Vz Recs" aspect="reel" />
+          <div className="lg:translate-x-10 xl:translate-x-0">
+            <MediaFrame src={about.image} alt="Retrato da Vz Recs" aspect="reel" />
+          </div>
         </Reveal>
       </div>
     </SectionShell>

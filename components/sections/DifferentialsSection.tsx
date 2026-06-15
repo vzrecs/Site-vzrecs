@@ -1,35 +1,28 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SectionShell } from "@/components/ui/SectionShell";
 
 const carouselPhotos = [
-  "/assets/images/fotoscarrosel/foto-vertical-02.jpg",
+  "/assets/images/fotoscarrosel/IMG_8093.webp",
   "/assets/images/fotoscarrosel/foto-vertical-03.jpg",
-  "/assets/images/fotoscarrosel/foto-vertical-04.jpg",
-  "/assets/images/fotoscarrosel/foto-vertical-05.jpg",
   "/assets/images/fotoscarrosel/IMG_0574.webp",
-  "/assets/images/fotoscarrosel/IMG_0655.JPG.webp",
-  "/assets/images/fotoscarrosel/IMG_3242.JPG.webp",
-  "/assets/images/fotoscarrosel/IMG_6081.webp",
   "/assets/images/fotoscarrosel/IMG_7863.webp",
+  "/assets/images/fotoscarrosel/foto-vertical-05.jpg",
+  "/assets/images/fotoscarrosel/IMG_3242.JPG.webp",
+  "/assets/images/fotoscarrosel/foto-vertical-02.jpg",
   "/assets/images/fotoscarrosel/IMG_8070.webp",
-  "/assets/images/fotoscarrosel/IMG_8093.webp"
+  "/assets/images/fotoscarrosel/IMG_0655.JPG.webp",
+  "/assets/images/fotoscarrosel/IMG_6081.webp",
+  "/assets/images/fotoscarrosel/foto-vertical-04.jpg"
 ] as const;
 
+const carouselLoop = [...carouselPhotos, ...carouselPhotos];
+
 export function DifferentialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = window.setInterval(() => {
-      setActiveIndex((index) => (index + 3) % carouselPhotos.length);
-    }, 3000);
-
-    return () => window.clearInterval(interval);
-  }, []);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <SectionShell id="portfolio" className="relative scroll-mt-0 overflow-hidden bg-ink-black">
@@ -39,39 +32,67 @@ export function DifferentialsSection() {
           Portfólio
         </h2>
       </Reveal>
-      <Reveal className="relative z-10 mx-auto grid max-w-[980px] justify-items-center gap-5 md:grid-cols-3">
-        {[0, 1, 2].map((offset) => {
-          const imageIndex = (activeIndex + offset) % carouselPhotos.length;
-          const isHiddenOnMobile = offset > 0;
-
-          return (
+      <Reveal className="relative left-1/2 z-10 w-screen -translate-x-1/2 overflow-hidden xl:hidden">
+        <motion.div
+          className="flex w-max"
+          animate={shouldReduceMotion ? undefined : { x: ["0vw", `-${carouselPhotos.length * 100}vw`] }}
+          transition={{
+            duration: 38,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop"
+          }}
+        >
+          {carouselLoop.map((photo, index) => (
             <div
-              key={offset}
-              className={`w-full max-w-[300px] ${isHiddenOnMobile ? "hidden md:block" : ""}`}
+              key={`compact-${photo}-${index}`}
+              className="flex w-screen shrink-0 justify-center"
             >
-              <div className="relative aspect-[9/16] w-full overflow-hidden rounded-[6px] bg-white/[0.03] shadow-cinematic">
-                <AnimatePresence mode="popLayout">
-                  <motion.div
-                    key={carouselPhotos[imageIndex]}
-                    className="absolute inset-0"
-                    initial={{ opacity: 0, scale: 1.025, y: 10 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.99, y: -8 }}
-                    transition={{ duration: 0.88, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <Image
-                      src={carouselPhotos[imageIndex]}
-                      alt="Portfólio fotográfico da VZ RECS"
-                      fill
-                      sizes="(min-width: 768px) 300px, 92vw"
-                      className="object-cover"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+              <div className="relative aspect-[9/16] w-[78vw] overflow-hidden rounded-[6px] bg-ink-panel shadow-cinematic sm:w-[66vw] lg:w-[430px]">
+                <div className="absolute inset-0">
+                  <Image
+                    src={photo}
+                    alt="Portfólio fotográfico da VZ RECS"
+                    fill
+                    sizes="(min-width: 1024px) 430px, (min-width: 640px) 66vw, 78vw"
+                    className="object-cover"
+                    priority={index < 4}
+                  />
+                </div>
               </div>
             </div>
-          );
-        })}
+          ))}
+        </motion.div>
+      </Reveal>
+      <Reveal className="relative z-10 mx-auto hidden w-full max-w-[920px] overflow-hidden xl:block">
+        <motion.div
+          className="flex w-max gap-4"
+          animate={shouldReduceMotion ? undefined : { x: ["0%", "-50%"] }}
+          transition={{
+            duration: 58,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop"
+          }}
+        >
+          {carouselLoop.map((photo, index) => (
+            <div
+              key={`wide-${photo}-${index}`}
+              className="relative aspect-[9/16] w-[268px] shrink-0 overflow-hidden rounded-[6px] bg-ink-panel shadow-cinematic"
+            >
+              <div className="absolute inset-0">
+                <Image
+                  src={photo}
+                  alt="Portfólio fotográfico da VZ RECS"
+                  fill
+                  sizes="268px"
+                  className="object-cover"
+                  priority={index < 4}
+                />
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </Reveal>
     </SectionShell>
   );
