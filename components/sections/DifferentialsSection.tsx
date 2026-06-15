@@ -49,35 +49,37 @@ export function DifferentialsSection() {
           Portfólio
         </h2>
       </Reveal>
-      <Reveal className="relative left-1/2 z-10 w-screen -translate-x-1/2 overflow-hidden xl:hidden">
-        <div
-          className="flex w-max"
-          style={{ animation: compactAnimation }}
-        >
-          {compactGroups.map((group, groupIndex) => (
-            <div
-              key={`compact-group-${groupIndex}`}
-              className="flex shrink-0 gap-4 pr-4 sm:gap-5 sm:pr-5 lg:gap-6 lg:pr-6"
-            >
-              {group.map((photo, photoIndex) => (
-                <div
-                  key={`compact-${photo}-${groupIndex}`}
-                  className="relative aspect-[9/16] w-[78vw] shrink-0 overflow-hidden rounded-[6px] bg-ink-panel shadow-cinematic sm:w-[44vw] lg:w-[31vw]"
-                >
-                  <Image
-                    src={photo}
-                    alt="Portfólio fotográfico da VZ RECS"
-                    fill
-                    sizes="(min-width: 1024px) 31vw, (min-width: 640px) 44vw, 78vw"
-                    className="object-cover"
-                    priority={groupIndex === 0 && photoIndex < 4}
-                  />
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </Reveal>
+      <div className="relative left-1/2 z-10 w-screen -translate-x-1/2 overflow-hidden xl:hidden">
+        <Reveal className="w-full">
+          <div
+            className="flex w-max"
+            style={{ animation: compactAnimation }}
+          >
+            {compactGroups.map((group, groupIndex) => (
+              <div
+                key={`compact-group-${groupIndex}`}
+                className="flex shrink-0 gap-4 pr-4 sm:gap-5 sm:pr-5 lg:gap-6 lg:pr-6"
+              >
+                {group.map((photo, photoIndex) => (
+                  <div
+                    key={`compact-${photo}-${groupIndex}`}
+                    className="relative aspect-[9/16] w-[78vw] shrink-0 overflow-hidden rounded-[6px] bg-ink-panel shadow-cinematic sm:w-[44vw] lg:w-[31vw]"
+                  >
+                    <Image
+                      src={photo}
+                      alt="Portfólio fotográfico da VZ RECS"
+                      fill
+                      sizes="(min-width: 1024px) 31vw, (min-width: 640px) 44vw, 78vw"
+                      className="object-cover"
+                      priority={groupIndex === 0 && photoIndex < 4}
+                    />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </div>
       <Reveal className="relative z-10 mx-auto hidden w-full max-w-[920px] overflow-hidden xl:block">
         <motion.div
           className="flex w-max gap-4"
