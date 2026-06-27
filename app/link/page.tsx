@@ -3,6 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { Anton } from "next/font/google";
 import type { ReactElement } from "react";
+import { LinkCards } from "./LinkCards";
 
 const anton = Anton({
   subsets: ["latin"],
@@ -19,10 +20,7 @@ export const metadata: Metadata = {
 };
 
 const whatsappBudgetUrl =
-  "https://wa.me/553598423283?text=Vim%20do%20instagram%20e%20gostar%C3%ADa%20de%20fazer%20um%20or%C3%A7amento!";
-
-const whatsappProjectUrl =
-  whatsappBudgetUrl;
+  "https://wa.me/5535984232883?text=Vim%20do%20instagram%20e%20gostar%C3%ADa%20de%20fazer%20um%20or%C3%A7amento!";
 
 type IconProps = {
   className?: string;
@@ -149,15 +147,14 @@ const linkCards: LinkCard[] = [
     external: true
   },
   {
+    label: "Iniciar um projeto",
+    href: "/iniciar-projeto",
+    icon: BriefcaseIcon
+  },
+  {
     label: "Nosso site",
     href: "https://vzrecs.com.br/",
     icon: GlobeIcon,
-    external: true
-  },
-  {
-    label: "Iniciar um projeto",
-    href: whatsappProjectUrl,
-    icon: BriefcaseIcon,
     external: true
   },
   {
@@ -169,7 +166,7 @@ const linkCards: LinkCard[] = [
 
 function LinkButton({ href, label, icon: Icon, external }: LinkCard) {
   const className =
-    "group relative grid min-h-[72px] grid-cols-[44px_1fr_44px] items-center overflow-hidden rounded-[20px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] px-5 text-white shadow-[0_18px_46px_rgba(0,0,0,0.34),inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-xl transition duration-300 hover:-translate-y-0.5 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[0_26px_72px_rgba(0,0,0,0.42),0_0_26px_rgba(255,35,35,0.16),inset_0_1px_0_rgba(255,255,255,0.16)] focus:outline-none focus:ring-2 focus:ring-accent-red/70 focus:ring-offset-2 focus:ring-offset-ink-black sm:min-h-[76px]";
+    "group relative grid min-h-[72px] grid-cols-[44px_1fr_44px] items-center overflow-hidden rounded-[20px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] px-5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] focus:outline-none focus:ring-2 focus:ring-accent-red/70 focus:ring-offset-2 focus:ring-offset-ink-black sm:min-h-[76px]";
 
   const content = (
     <>
@@ -178,8 +175,11 @@ function LinkButton({ href, label, icon: Icon, external }: LinkCard) {
       <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.14] bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),rgba(255,255,255,0.04)_42%,rgba(0,0,0,0.34))] text-white/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_26px_rgba(0,0,0,0.24)] transition duration-300 group-hover:border-accent-red/65 group-hover:text-accent-red">
         <Icon className="h-6 w-6" />
       </span>
-      <span className="relative px-3 text-center font-body text-lg font-black leading-tight text-white [font-style:italic] [font-weight:900] sm:text-xl">
-        {label}
+      <span className="relative flex max-w-full items-center font-body text-lg font-black italic leading-tight text-white [font-weight:900] sm:text-xl">
+        <span aria-hidden="true" className="mx-3 -translate-y-0.5 text-center text-2xl leading-none text-accent-red/90 sm:text-[1.7rem]">
+          |
+        </span>
+        <span>{label}</span>
       </span>
       <span aria-hidden="true" className="relative flex justify-end">
         <span className="h-1.5 w-1.5 rounded-full bg-accent-red/70 opacity-0 shadow-[0_0_14px_rgba(255,35,35,0.7)] transition duration-300 group-hover:opacity-100" />
@@ -207,19 +207,25 @@ export default function LinkPage() {
     <main className="fixed inset-0 z-[60] min-h-svh overflow-y-auto bg-ink-black font-body text-white">
       <style>
         {`
-          @keyframes vz-rec-bounce {
+          @keyframes vz-logo-float {
             0%, 100% {
-              transform: translateY(0);
+              transform: translateY(-1rem);
             }
-            48% {
-              transform: translateY(-0.32rem);
+            50% {
+              transform: translateY(-1.55rem);
             }
           }
 
           @media (prefers-reduced-motion: reduce) {
-            .vz-rec-dot {
+            .vz-rec-dot,
+            .vz-logo-float {
               animation: none !important;
             }
+          }
+
+          .vz-phone-scroll::-webkit-scrollbar {
+            width: 0;
+            height: 0;
           }
         `}
       </style>
@@ -257,44 +263,48 @@ export default function LinkPage() {
             <span className="mr-3 h-2.5 w-2.5 rounded-full bg-[#071124] shadow-[0_0_8px_rgba(47,92,255,0.45)]" />
           </div>
 
-          <div className="relative z-10 flex h-full flex-col text-center">
+          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden text-center [scrollbar-width:none]">
             <div className="flex -translate-y-14 flex-col items-center pt-28 sm:-translate-y-10 sm:pt-32">
               <h1
                 id="link-page-title"
                 className={`${anton.className} relative inline-block text-[5.15rem] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)] sm:text-[5.85rem]`}
               >
                 <span>
-                  VZ RECS
+                  <span className="text-transparent [-webkit-text-stroke:3px_#ff2323] [text-shadow:0_0_6px_rgba(255,35,35,0.22)] sm:[-webkit-text-stroke:3.4px_#ff2323]">
+                    VZ
+                  </span>{" "}
+                  RECS
                 </span>
                 <span
                   aria-hidden="true"
-                  className="vz-rec-dot absolute -top-1 left-full ml-3 h-5 w-5 rounded-full bg-accent-red shadow-[0_0_20px_rgba(255,35,35,0.78)] [animation:vz-rec-bounce_1.45s_ease-in-out_infinite] sm:-top-1.5 sm:ml-4 sm:h-6 sm:w-6"
+                  className="vz-rec-dot absolute -top-1 left-full ml-3 h-5 w-5 rounded-full bg-accent-red shadow-[0_0_20px_rgba(255,35,35,0.78)] [animation:vz-logo-float_3.8s_ease-in-out_infinite] sm:-top-1.5 sm:ml-4 sm:h-6 sm:w-6"
                 />
               </h1>
               <p className="mt-4 font-body text-[1.08rem] font-black leading-snug text-white/90 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] sm:text-[1.2rem]">
-                Audiovisual · Fotografia · Conteúdo
+                Audiovisual <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
+                Fotografia <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
+                Conteúdo
               </p>
             </div>
 
-            <div className="-mt-3 flex flex-col gap-5 sm:mt-0 sm:gap-6">
-              {linkCards.map((item) => (
-                <LinkButton key={item.label} {...item} />
-              ))}
-            </div>
+            <LinkCards />
 
-            <div className="mx-auto mb-4 mt-auto flex h-32 w-32 items-center justify-center sm:h-36 sm:w-36">
+            <div className="vz-logo-float relative mx-auto mb-4 mt-auto flex h-56 w-56 -translate-y-5 items-center justify-center [animation:vz-logo-float_3.8s_ease-in-out_infinite] sm:h-60 sm:w-60 sm:-translate-y-6">
+              <span className="pointer-events-none absolute inset-8 -z-10 rounded-full bg-accent-red/12 blur-xl" />
               <Image
                 alt="VZ RECS"
-                className="h-full w-full object-contain"
+                className="relative z-10 h-full w-full object-contain"
                 height={144}
                 priority
-                src="/assets/images/logo-vz-recs-round-clean-v2.png"
+                src="/assets/images/logo-vz-recs-transparent.png"
                 width={144}
               />
             </div>
 
-            <p className="pb-12 pt-1 text-center font-body text-[0.68rem] font-black uppercase tracking-[0.14em] text-white/72 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] sm:pb-16 sm:text-xs sm:tracking-[0.16em]">
-              Lavras - Minas Gerais
+            <p className="-translate-y-14 pb-8 pt-0 text-center font-body text-lg font-black tracking-normal text-white/90 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] sm:-translate-y-16 sm:pb-10 sm:text-xl">
+              Lavras <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
+              Minas Gerais <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
+              Brasil
             </p>
           </div>
         </section>
