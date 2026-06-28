@@ -257,6 +257,7 @@ export function ProjectBriefingForm() {
     {
       id: "deadline",
       title: "5. Data estimada",
+      required: true,
       content: (
         <OptionPicker onChange={(value) => updateField("deadline", value)} options={deadlineOptions} value={form.deadline} />
       )
@@ -268,7 +269,7 @@ export function ProjectBriefingForm() {
         <textarea
           className={`${fieldClassName} min-h-28 resize-y py-4`}
           onChange={(event) => updateField("message", event.target.value)}
-          placeholder="Conte um pouco sobre sua ideia, necessidade ou o que vocÃª espera desse projeto."
+          placeholder="Conte um pouco sobre sua ideia"
           value={form.message}
         />
       )

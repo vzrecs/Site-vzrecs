@@ -82,13 +82,13 @@ export default function LinkPage() {
             .vz-link-logo {
               height: 10.75rem !important;
               width: 10.75rem !important;
-              margin-top: -0.7rem !important;
+              margin-top: -1rem !important;
               margin-bottom: -0.65rem !important;
             }
 
             .vz-link-footer {
               padding-bottom: 0 !important;
-              transform: translateY(-2.75rem) !important;
+              transform: translateY(-2.25rem) !important;
             }
           }
 
