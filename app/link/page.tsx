@@ -29,34 +29,34 @@ export default function LinkPage() {
             }
 
             .vz-phone-shell {
-              width: 390px !important;
+              width: 430px !important;
               max-width: none !important;
-              transform: scale(0.78);
+              transform: scale(0.71);
               transform-origin: center center;
             }
           }
 
           @media (max-width: 767px) and (min-width: 340px) and (min-height: 720px) {
             .vz-phone-shell {
-              transform: scale(0.84);
+              transform: scale(0.78);
             }
           }
 
           @media (max-width: 767px) and (min-width: 360px) and (min-height: 760px) {
             .vz-phone-shell {
-              transform: scale(0.9);
+              transform: scale(0.84);
             }
           }
 
           @media (max-width: 767px) and (min-width: 390px) and (min-height: 800px) {
             .vz-phone-shell {
-              transform: scale(0.98);
+              transform: scale(0.9);
             }
           }
 
           @media (max-width: 767px) and (min-width: 414px) and (min-height: 880px) {
             .vz-phone-shell {
-              transform: scale(1.02);
+              transform: scale(0.94);
             }
           }
 
