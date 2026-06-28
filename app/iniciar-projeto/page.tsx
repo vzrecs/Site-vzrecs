@@ -62,8 +62,18 @@ export default function StartProjectPage() {
             .vz-phone-scroll {
               padding-left: 1.25rem !important;
               padding-right: 1.25rem !important;
-              padding-top: max(4.75rem, calc(env(safe-area-inset-top) + 3.5rem)) !important;
-              padding-bottom: max(1.75rem, calc(env(safe-area-inset-bottom) + 1rem)) !important;
+              padding-top: max(2rem, calc(env(safe-area-inset-top) + 1.5rem)) !important;
+              padding-bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem)) !important;
+            }
+
+            .vz-project-title {
+              font-size: clamp(3.45rem, 15.5vw, 4.4rem) !important;
+            }
+
+            .vz-project-copy {
+              font-size: clamp(0.82rem, 3.75vw, 1rem) !important;
+              margin-bottom: 0.75rem !important;
+              margin-top: 0 !important;
             }
           }
 
@@ -140,16 +150,16 @@ export default function StartProjectPage() {
           </div>
 
           <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-24 text-center [scrollbar-width:none] max-md:px-5 max-md:pb-8 max-md:pt-20 min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-24 sm:px-0 sm:pb-10 sm:pt-28">
-            <div className="mb-3 flex -translate-y-4 flex-col items-center min-[390px]:mb-4 min-[390px]:-translate-y-5 sm:mb-5 sm:-translate-y-8">
+            <div className="mb-3 flex -translate-y-4 flex-col items-center max-md:!translate-y-0 min-[390px]:mb-4 min-[390px]:-translate-y-5 sm:mb-5 sm:-translate-y-8">
               <h1
                 id="start-project-title"
-                className={`${anton.className} relative inline-block text-[clamp(3.15rem,15vw,4.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
+                className={`${anton.className} vz-project-title relative inline-block text-[clamp(3.15rem,15vw,4.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
               >
                 <span>Formulario</span>
               </h1>
             </div>
 
-            <p className="mx-auto mb-5 mt-1 w-[min(20.7rem,calc(100%-1.25rem))] text-center font-body text-[clamp(0.95rem,4.25vw,1.25rem)] font-black italic leading-tight text-white/90 [font-weight:900] min-[390px]:mb-6 min-[390px]:mt-2 md:-mt-11 md:mb-4">
+            <p className="vz-project-copy mx-auto mb-5 mt-1 w-[min(20.7rem,calc(100%-1.25rem))] text-center font-body text-[clamp(0.95rem,4.25vw,1.25rem)] font-black italic leading-tight text-white/90 [font-weight:900] min-[390px]:mb-6 min-[390px]:mt-2 md:-mt-11 md:mb-4">
               Nos conte a sua ideia e receba uma proposta personalizada.
             </p>
 

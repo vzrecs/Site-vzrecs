@@ -62,8 +62,23 @@ export default function LinkPage() {
             .vz-phone-scroll {
               padding-left: 1.25rem !important;
               padding-right: 1.25rem !important;
-              padding-top: max(4.75rem, calc(env(safe-area-inset-top) + 3.5rem)) !important;
-              padding-bottom: max(1.75rem, calc(env(safe-area-inset-bottom) + 1rem)) !important;
+              padding-top: max(2rem, calc(env(safe-area-inset-top) + 1.5rem)) !important;
+              padding-bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem)) !important;
+            }
+
+            .vz-link-title {
+              font-size: clamp(3rem, 17vw, 4.55rem) !important;
+            }
+
+            .vz-link-subtitle,
+            .vz-link-footer {
+              font-size: clamp(0.88rem, 3.9vw, 1.05rem) !important;
+            }
+
+            .vz-link-logo {
+              height: 8.25rem !important;
+              width: 8.25rem !important;
+              margin-top: 0.5rem !important;
             }
           }
 
@@ -140,10 +155,10 @@ export default function LinkPage() {
           </div>
 
           <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-24 text-center [scrollbar-width:none] max-md:px-5 max-md:pb-8 max-md:pt-20 min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-28 sm:px-0 sm:pb-10 sm:pt-28">
-            <div className="flex -translate-y-4 flex-col items-center min-[390px]:-translate-y-5 sm:-translate-y-8">
+            <div className="flex -translate-y-4 flex-col items-center max-md:!translate-y-0 min-[390px]:-translate-y-5 sm:-translate-y-8">
               <h1
                 id="link-page-title"
-                className={`${anton.className} relative inline-block text-[clamp(3.65rem,18vw,5.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
+                className={`${anton.className} vz-link-title relative inline-block text-[clamp(3.65rem,18vw,5.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
               >
                 <span>
                   <span className="text-transparent [-webkit-text-stroke:2.2px_#ff2323] [text-shadow:0_0_6px_rgba(255,35,35,0.22)] min-[390px]:[-webkit-text-stroke:3px_#ff2323] sm:[-webkit-text-stroke:3.4px_#ff2323]">
@@ -156,7 +171,7 @@ export default function LinkPage() {
                   className="vz-rec-dot absolute -top-0.5 left-full ml-2.5 h-4 w-4 rounded-full bg-accent-red shadow-[0_0_18px_rgba(255,35,35,0.72)] [animation:vz-logo-float_3.8s_ease-in-out_infinite] min-[390px]:ml-3 min-[390px]:h-5 min-[390px]:w-5 sm:-top-1 sm:ml-4 sm:h-6 sm:w-6"
                 />
               </h1>
-              <p className="mt-3 max-w-full font-body text-[clamp(0.92rem,4.3vw,1.2rem)] font-black leading-snug text-white/90 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] min-[390px]:mt-4">
+              <p className="vz-link-subtitle mt-3 max-w-full font-body text-[clamp(0.92rem,4.3vw,1.2rem)] font-black leading-snug text-white/90 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] min-[390px]:mt-4">
                 Audiovisual <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
                 Fotografia <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
                 Conteúdo
@@ -165,7 +180,7 @@ export default function LinkPage() {
 
             <LinkCards />
 
-            <div className="vz-logo-float relative mx-auto mb-2 mt-auto flex h-36 w-36 -translate-y-2 items-center justify-center [animation:vz-logo-float_3.8s_ease-in-out_infinite] min-[390px]:h-44 min-[390px]:w-44 sm:h-48 sm:w-48 sm:-translate-y-4">
+            <div className="vz-logo-float vz-link-logo relative mx-auto mb-2 mt-auto flex h-36 w-36 -translate-y-2 items-center justify-center [animation:vz-logo-float_3.8s_ease-in-out_infinite] min-[390px]:h-44 min-[390px]:w-44 sm:h-48 sm:w-48 sm:-translate-y-4">
               <span className="pointer-events-none absolute inset-7 -z-10 rounded-full bg-accent-red/12 blur-xl" />
               <Image
                 alt="VZ RECS"
@@ -177,7 +192,7 @@ export default function LinkPage() {
               />
             </div>
 
-            <p className="-translate-y-6 pb-5 pt-0 text-center font-body text-[clamp(0.98rem,4.4vw,1.25rem)] font-black tracking-normal text-white/90 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] min-[390px]:-translate-y-8 sm:-translate-y-10 sm:pb-6">
+            <p className="vz-link-footer -translate-y-6 pb-5 pt-0 text-center font-body text-[clamp(0.98rem,4.4vw,1.25rem)] font-black tracking-normal text-white/90 [font-style:italic] [font-weight:900] [text-shadow:0_0_10px_rgba(255,255,255,0.24),0_0_24px_rgba(255,255,255,0.12)] min-[390px]:-translate-y-8 sm:-translate-y-10 sm:pb-6">
               Lavras <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
               Minas Gerais <span className="align-middle text-[1.35em] leading-none text-accent-red">·</span>{" "}
               Brasil

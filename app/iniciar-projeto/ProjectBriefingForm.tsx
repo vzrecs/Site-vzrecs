@@ -298,7 +298,7 @@ export function ProjectBriefingForm() {
 
   return (
     <form className="flex w-full flex-1 flex-col" onSubmit={handleSubmit}>
-      <div className="space-y-3 sm:space-y-3.5">
+      <div className="space-y-3 max-md:space-y-2 sm:space-y-3.5">
         {fields.map((field) => {
           const isOpen = openField === field.id;
           const fieldValue = form[field.id];
@@ -316,18 +316,18 @@ export function ProjectBriefingForm() {
               <span className="pointer-events-none absolute left-0 top-1/2 h-10 w-px -translate-y-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,35,35,0.8),transparent)] opacity-70 transition duration-300 group-hover:opacity-100" />
               <button
                 aria-expanded={isOpen}
-                className="grid min-h-[64px] w-full grid-cols-[minmax(0,1fr)_1.35rem] items-center gap-2.5 px-3.5 py-3 text-left font-body min-[390px]:grid-cols-[minmax(0,1fr)_1.5rem] min-[390px]:gap-3 min-[390px]:px-5 min-[390px]:py-3.5 sm:min-h-[72px] sm:py-4"
+                className="grid min-h-[64px] w-full grid-cols-[minmax(0,1fr)_1.35rem] items-center gap-2.5 px-3.5 py-3 text-left font-body max-md:min-h-[52px] max-md:gap-2 max-md:px-3 max-md:py-2 min-[390px]:grid-cols-[minmax(0,1fr)_1.5rem] min-[390px]:gap-3 min-[390px]:px-5 min-[390px]:py-3.5 sm:min-h-[72px] sm:py-4"
                 onClick={() => setOpenField(isOpen ? null : field.id)}
                 type="button"
               >
                 <span
-                  className="relative flex min-w-0 max-w-full flex-wrap items-center font-body text-[clamp(0.95rem,4.1vw,1.25rem)] font-black italic leading-tight text-white [font-weight:900]"
+                  className="relative flex min-w-0 max-w-full flex-wrap items-center font-body text-[clamp(0.95rem,4.1vw,1.25rem)] font-black italic leading-tight text-white [font-weight:900] max-md:text-[0.95rem]"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
                   {questionNumber ? <span className="shrink-0">{questionNumber}</span> : null}
                   <span
                     aria-hidden="true"
-                    className="mx-2 shrink-0 -translate-y-0.5 text-center text-[1.45rem] leading-none text-accent-red/90 min-[390px]:mx-3 min-[390px]:text-2xl sm:text-[1.7rem]"
+                    className="mx-2 shrink-0 -translate-y-0.5 text-center text-[1.45rem] leading-none text-accent-red/90 max-md:mx-1.5 max-md:text-[1.35rem] min-[390px]:mx-3 min-[390px]:text-2xl sm:text-[1.7rem]"
                   >
                     |
                   </span>
@@ -355,7 +355,7 @@ export function ProjectBriefingForm() {
                     isOpen ? "rotate-180" : ""
                   }`}
                 >
-                  <svg className="h-6 w-6 min-[390px]:h-7 min-[390px]:w-7" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="h-6 w-6 max-md:h-5 max-md:w-5 min-[390px]:h-7 min-[390px]:w-7" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="m5 8.5 7 7 7-7"
                       stroke="currentColor"
@@ -374,7 +374,7 @@ export function ProjectBriefingForm() {
       </div>
 
       <button
-        className="mt-5 min-h-[3.5rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:min-h-[3.65rem] sm:text-lg"
+        className="mt-5 min-h-[3.5rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black max-md:mt-3 max-md:min-h-[3rem] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:min-h-[3.65rem] sm:text-lg"
         type="submit"
       >
         Enviar pelo WhatsApp
