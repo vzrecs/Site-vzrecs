@@ -91,7 +91,7 @@ const linkCards: LinkCard[] = [
 ];
 
 const cardClassName =
-  "group relative grid min-h-[72px] grid-cols-[44px_1fr_44px] items-center overflow-hidden rounded-[20px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] px-5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] focus:outline-none focus:ring-2 focus:ring-accent-red/70 focus:ring-offset-2 focus:ring-offset-ink-black sm:min-h-[76px]";
+  "group relative grid min-h-[64px] grid-cols-[40px_minmax(0,1fr)_18px] items-center overflow-hidden rounded-[18px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] px-3.5 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] focus:outline-none focus:ring-2 focus:ring-accent-red/70 focus:ring-offset-2 focus:ring-offset-ink-black min-[390px]:min-h-[70px] min-[390px]:grid-cols-[44px_minmax(0,1fr)_28px] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:min-h-[76px] sm:grid-cols-[44px_minmax(0,1fr)_44px]";
 
 type CardContentProps = Pick<LinkCard, "label" | "icon"> & {
   decorativeLines?: boolean;
@@ -106,14 +106,14 @@ function CardContent({ label, icon: Icon, decorativeLines = true }: CardContentP
           <span className="pointer-events-none absolute left-0 top-1/2 h-10 w-px -translate-y-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,35,35,0.8),transparent)] opacity-70 transition duration-300 group-hover:opacity-100" />
         </>
       ) : null}
-      <span className="relative flex h-11 w-11 items-center justify-center rounded-full border border-white/[0.14] bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),rgba(255,255,255,0.04)_42%,rgba(0,0,0,0.34))] text-white/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_26px_rgba(0,0,0,0.24)] transition duration-300 group-hover:border-accent-red/65 group-hover:text-accent-red">
-        <Icon className="h-6 w-6" />
+      <span className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.14] bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),rgba(255,255,255,0.04)_42%,rgba(0,0,0,0.34))] text-white/88 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_10px_26px_rgba(0,0,0,0.24)] transition duration-300 group-hover:border-accent-red/65 group-hover:text-accent-red min-[390px]:h-11 min-[390px]:w-11">
+        <Icon className="h-5 w-5 min-[390px]:h-6 min-[390px]:w-6" />
       </span>
-      <span className="relative flex max-w-full items-center font-body text-lg font-black italic leading-tight text-white [font-weight:900] sm:text-xl">
-        <span aria-hidden="true" className="mx-3 -translate-y-0.5 text-center text-2xl leading-none text-accent-red/90 sm:text-[1.7rem]">
+      <span className="relative flex min-w-0 max-w-full items-center font-body text-[clamp(0.98rem,4.35vw,1.25rem)] font-black italic leading-tight text-white [font-weight:900]">
+        <span aria-hidden="true" className="mx-2 -translate-y-0.5 text-center text-[1.45rem] leading-none text-accent-red/90 min-[390px]:mx-3 min-[390px]:text-2xl sm:text-[1.7rem]">
           |
         </span>
-        <span>{label}</span>
+        <span className="min-w-0 truncate">{label}</span>
       </span>
       <span aria-hidden="true" className="relative flex justify-end">
         <span className="h-1.5 w-1.5 rounded-full bg-accent-red/70 opacity-0 shadow-[0_0_14px_rgba(255,35,35,0.7)] transition duration-300 group-hover:opacity-100" />
@@ -142,10 +142,10 @@ function AboutAccordion() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="group relative overflow-hidden rounded-[20px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]">
+    <div className="group relative overflow-hidden rounded-[18px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] min-[390px]:rounded-[20px]">
       <button
         aria-expanded={isOpen}
-        className="relative grid min-h-[72px] w-full grid-cols-[44px_1fr_44px] items-center px-5 text-left focus:outline-none sm:min-h-[76px]"
+        className="relative grid min-h-[64px] w-full grid-cols-[40px_minmax(0,1fr)_18px] items-center px-3.5 text-left focus:outline-none min-[390px]:min-h-[70px] min-[390px]:grid-cols-[44px_minmax(0,1fr)_28px] min-[390px]:px-5 sm:min-h-[76px] sm:grid-cols-[44px_minmax(0,1fr)_44px]"
         onClick={() => setIsOpen((current) => !current)}
         type="button"
       >
@@ -153,8 +153,8 @@ function AboutAccordion() {
       </button>
 
       {isOpen ? (
-        <div className="border-t border-white/[0.055] px-5 pb-5 pt-4">
-          <p className="text-left font-body text-sm font-semibold leading-relaxed text-white/78 sm:text-[0.95rem]">
+        <div className="border-t border-white/[0.055] px-4 pb-4 pt-3 min-[390px]:px-5 min-[390px]:pb-5 min-[390px]:pt-4">
+          <p className="text-left font-body text-[0.82rem] font-semibold leading-relaxed text-white/78 min-[390px]:text-sm sm:text-[0.95rem]">
             Do planejamento à entrega, nosso compromisso é garantir um trabalho bem executado, com processos claros,
             atenção aos detalhes e respeito aos prazos acordados.
           </p>
@@ -166,7 +166,7 @@ function AboutAccordion() {
 
 export function LinkCards() {
   return (
-    <div className="-mt-3 flex flex-col gap-5 sm:mt-0 sm:gap-6">
+    <div className="-mt-1 flex w-full flex-col gap-3.5 min-[390px]:-mt-2 min-[390px]:gap-[1.125rem] sm:mt-0 sm:gap-6">
       {linkCards.map((item) => (
         <LinkButton key={item.label} {...item} />
       ))}

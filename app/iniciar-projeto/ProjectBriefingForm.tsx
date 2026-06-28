@@ -89,7 +89,7 @@ function buildWhatsAppMessage(form: BriefingFormState) {
 }
 
 const fieldClassName =
-  "mt-3 min-h-[3.25rem] w-full rounded-[16px] border border-white/[0.14] bg-white/[0.065] px-4 font-body text-base font-semibold text-white outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_28px_rgba(0,0,0,0.16)] backdrop-blur-md transition duration-300 [color-scheme:dark] placeholder:text-white/34 focus:border-accent-red/70 focus:bg-white/[0.085] focus:ring-2 focus:ring-accent-red/45";
+  "mt-3 min-h-[3.15rem] w-full rounded-[16px] border border-white/[0.14] bg-white/[0.065] px-3.5 font-body text-[0.95rem] font-semibold text-white outline-none shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_12px_28px_rgba(0,0,0,0.16)] backdrop-blur-md transition duration-300 [color-scheme:dark] placeholder:text-white/34 focus:border-accent-red/70 focus:bg-white/[0.085] focus:ring-2 focus:ring-accent-red/45 min-[390px]:min-h-[3.25rem] min-[390px]:px-4 min-[390px]:text-base";
 
 type OptionPickerProps = {
   options: string[];
@@ -99,14 +99,14 @@ type OptionPickerProps = {
 
 function OptionPicker({ options, value, onChange }: OptionPickerProps) {
   return (
-    <div className="mt-4 grid gap-2.5">
+    <div className="mt-3 grid gap-2 min-[390px]:mt-4 min-[390px]:gap-2.5">
       {options.map((option) => {
         const isSelected = value === option;
 
         return (
           <button
             aria-pressed={isSelected}
-            className={`group/option relative min-h-[3.15rem] overflow-hidden rounded-[16px] border px-4 py-3 text-left font-body text-sm font-black italic leading-tight transition duration-300 sm:text-[0.95rem] ${
+            className={`group/option relative min-h-[3rem] overflow-hidden rounded-[15px] border px-3.5 py-2.5 text-left font-body text-[0.85rem] font-black italic leading-tight transition duration-300 min-[390px]:min-h-[3.15rem] min-[390px]:rounded-[16px] min-[390px]:px-4 min-[390px]:py-3 min-[390px]:text-sm sm:text-[0.95rem] ${
               isSelected
                 ? "border-accent-red/75 bg-accent-red/16 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_0_1px_rgba(255,35,35,0.14)]"
                 : "border-white/[0.13] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.026)_48%,rgba(0,0,0,0.16))] text-white/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.09)] hover:border-white/[0.22] hover:bg-white/[0.075] hover:text-white"
@@ -116,7 +116,7 @@ function OptionPicker({ options, value, onChange }: OptionPickerProps) {
             type="button"
           >
             <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.30),transparent)]" />
-            <span className="relative flex items-center gap-3">
+            <span className="relative flex items-center gap-2.5 min-[390px]:gap-3">
               <span
                 aria-hidden="true"
                 className={`h-2.5 w-2.5 rounded-full transition duration-300 ${
@@ -125,7 +125,7 @@ function OptionPicker({ options, value, onChange }: OptionPickerProps) {
                     : "border border-white/30 bg-white/[0.04] group-hover/option:border-accent-red/55"
                 }`}
               />
-              <span>{option}</span>
+              <span className="min-w-0 break-words">{option}</span>
             </span>
           </button>
         );
@@ -151,14 +151,14 @@ function MultiOptionPicker({ options, values, onChange }: MultiOptionPickerProps
   };
 
   return (
-    <div className="mt-4 grid gap-2.5">
+    <div className="mt-3 grid gap-2 min-[390px]:mt-4 min-[390px]:gap-2.5">
       {options.map((option) => {
         const isSelected = values.includes(option);
 
         return (
           <button
             aria-pressed={isSelected}
-            className={`group/option relative min-h-[3.15rem] overflow-hidden rounded-[16px] border px-4 py-3 text-left font-body text-sm font-black italic leading-tight transition duration-300 sm:text-[0.95rem] ${
+            className={`group/option relative min-h-[3rem] overflow-hidden rounded-[15px] border px-3.5 py-2.5 text-left font-body text-[0.85rem] font-black italic leading-tight transition duration-300 min-[390px]:min-h-[3.15rem] min-[390px]:rounded-[16px] min-[390px]:px-4 min-[390px]:py-3 min-[390px]:text-sm sm:text-[0.95rem] ${
               isSelected
                 ? "border-accent-red/75 bg-accent-red/16 text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.16),0_0_0_1px_rgba(255,35,35,0.14)]"
                 : "border-white/[0.13] bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.026)_48%,rgba(0,0,0,0.16))] text-white/82 shadow-[inset_0_1px_0_rgba(255,255,255,0.09)] hover:border-white/[0.22] hover:bg-white/[0.075] hover:text-white"
@@ -168,7 +168,7 @@ function MultiOptionPicker({ options, values, onChange }: MultiOptionPickerProps
             type="button"
           >
             <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.30),transparent)]" />
-            <span className="relative flex items-center gap-3">
+            <span className="relative flex items-center gap-2.5 min-[390px]:gap-3">
               <span
                 aria-hidden="true"
                 className={`flex h-4 w-4 items-center justify-center rounded-[5px] border transition duration-300 ${
@@ -189,7 +189,7 @@ function MultiOptionPicker({ options, values, onChange }: MultiOptionPickerProps
                   </svg>
                 ) : null}
               </span>
-              <span>{option}</span>
+              <span className="min-w-0 break-words">{option}</span>
             </span>
           </button>
         );
@@ -297,8 +297,8 @@ export function ProjectBriefingForm() {
   };
 
   return (
-    <form className="-mx-1 flex flex-1 flex-col sm:mx-0" onSubmit={handleSubmit}>
-      <div className="space-y-3.5 sm:space-y-4">
+    <form className="flex w-full flex-1 flex-col" onSubmit={handleSubmit}>
+      <div className="space-y-3 min-[390px]:space-y-3.5 sm:space-y-3.5">
         {fields.map((field) => {
           const isOpen = openField === field.id;
           const fieldValue = form[field.id];
@@ -309,33 +309,33 @@ export function ProjectBriefingForm() {
 
           return (
             <div
-              className="group relative overflow-hidden rounded-[20px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] text-left text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]"
+              className="group relative overflow-hidden rounded-[18px] border border-white/[0.14] bg-[linear-gradient(135deg,rgba(255,255,255,0.105),rgba(255,255,255,0.025)_42%,rgba(0,0,0,0.22))] text-left text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] backdrop-blur-md transition duration-300 hover:border-accent-red/60 hover:bg-white/[0.08] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.16)] min-[390px]:rounded-[20px]"
               key={field.id}
             >
               <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.38),transparent)]" />
               <span className="pointer-events-none absolute left-0 top-1/2 h-10 w-px -translate-y-1/2 bg-[linear-gradient(180deg,transparent,rgba(255,35,35,0.8),transparent)] opacity-70 transition duration-300 group-hover:opacity-100" />
               <button
                 aria-expanded={isOpen}
-                className="grid min-h-[72px] w-full grid-cols-[1fr_1.5rem] items-center gap-3 px-5 py-4 text-left font-body sm:min-h-[76px]"
+                className="grid min-h-[64px] w-full grid-cols-[minmax(0,1fr)_1.35rem] items-center gap-2.5 px-3.5 py-3 text-left font-body min-[390px]:min-h-[70px] min-[390px]:grid-cols-[minmax(0,1fr)_1.5rem] min-[390px]:gap-3 min-[390px]:px-5 min-[390px]:py-4 sm:min-h-[72px]"
                 onClick={() => setOpenField(isOpen ? null : field.id)}
                 type="button"
               >
                 <span
-                  className="relative flex max-w-full items-center font-body text-lg font-black italic leading-tight text-white [font-weight:900] sm:text-xl"
+                  className="relative flex min-w-0 max-w-full flex-wrap items-center font-body text-[clamp(0.95rem,4.1vw,1.25rem)] font-black italic leading-tight text-white [font-weight:900]"
                   style={{ fontFamily: "var(--font-body)" }}
                 >
-                  {questionNumber ? <span>{questionNumber}</span> : null}
+                  {questionNumber ? <span className="shrink-0">{questionNumber}</span> : null}
                   <span
                     aria-hidden="true"
-                    className="mx-3 -translate-y-0.5 text-center text-2xl leading-none text-accent-red/90 sm:text-[1.7rem]"
+                    className="mx-2 shrink-0 -translate-y-0.5 text-center text-[1.45rem] leading-none text-accent-red/90 min-[390px]:mx-3 min-[390px]:text-2xl sm:text-[1.7rem]"
                   >
                     |
                   </span>
-                  <span>{questionText}</span>
+                  <span className="min-w-0 break-words">{questionText}</span>
                   {hasValue ? (
                     <span
                       aria-hidden="true"
-                      className="ml-2 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/[0.09] text-white"
+                      className="ml-2 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/[0.09] text-white min-[390px]:h-6 min-[390px]:w-6"
                     >
                       <svg className="h-4 w-4" fill="none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -355,7 +355,7 @@ export function ProjectBriefingForm() {
                     isOpen ? "rotate-180" : ""
                   }`}
                 >
-                  <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg className="h-6 w-6 min-[390px]:h-7 min-[390px]:w-7" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
                       d="m5 8.5 7 7 7-7"
                       stroke="currentColor"
@@ -367,14 +367,14 @@ export function ProjectBriefingForm() {
                 </span>
               </button>
 
-              {isOpen ? <div className="border-t border-white/[0.08] px-4 pb-4 pt-1">{field.content}</div> : null}
+              {isOpen ? <div className="border-t border-white/[0.08] px-3.5 pb-3.5 pt-1 min-[390px]:px-4 min-[390px]:pb-4">{field.content}</div> : null}
             </div>
           );
         })}
       </div>
 
       <button
-        className="mt-10 min-h-[3.75rem] w-full rounded-[20px] border border-accent-red/55 bg-accent-red px-5 text-center font-body text-base font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black sm:mt-10 sm:text-lg"
+        className="mt-6 min-h-[3.55rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black min-[390px]:mt-7 min-[390px]:min-h-[3.65rem] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:text-lg"
         type="submit"
       >
         Enviar pelo WhatsApp
@@ -392,5 +392,3 @@ export function ProjectBriefingForm() {
     </form>
   );
 }
-
-
