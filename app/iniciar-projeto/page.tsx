@@ -91,7 +91,7 @@ export default function StartProjectPage() {
             }
 
             .vz-phone-scroll {
-              padding-top: 5.25rem !important;
+              padding-top: 5.75rem !important;
               padding-bottom: 1.25rem !important;
             }
           }
