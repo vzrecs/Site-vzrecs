@@ -113,7 +113,7 @@ function CardContent({ label, icon: Icon, decorativeLines = true }: CardContentP
         <span aria-hidden="true" className="mx-2 -translate-y-0.5 text-center text-[1.45rem] leading-none text-accent-red/90 min-[390px]:mx-3 min-[390px]:text-2xl sm:text-[1.7rem]">
           |
         </span>
-        <span className="min-w-0 truncate">{label}</span>
+        <span className="min-w-0 whitespace-nowrap">{label}</span>
       </span>
       <span aria-hidden="true" className="relative flex justify-end">
         <span className="h-1.5 w-1.5 rounded-full bg-accent-red/70 opacity-0 shadow-[0_0_14px_rgba(255,35,35,0.7)] transition duration-300 group-hover:opacity-100" />
@@ -166,7 +166,7 @@ function AboutAccordion() {
 
 export function LinkCards() {
   return (
-    <div className="-mt-1 flex w-full flex-col gap-3.5 min-[390px]:-mt-2 min-[390px]:gap-[1.125rem] sm:mt-0 sm:gap-6">
+    <div className="mt-4 flex w-full flex-col gap-3.5 min-[390px]:mt-5 min-[390px]:gap-[1.125rem] sm:mt-6 sm:gap-6 md:mt-0">
       {linkCards.map((item) => (
         <LinkButton key={item.label} {...item} />
       ))}

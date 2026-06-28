@@ -27,6 +27,37 @@ export default function StartProjectPage() {
             body {
               overflow: hidden;
             }
+
+            .vz-phone-shell {
+              width: 390px !important;
+              max-width: none !important;
+              transform: scale(0.78);
+              transform-origin: center center;
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 340px) and (min-height: 720px) {
+            .vz-phone-shell {
+              transform: scale(0.84);
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 360px) and (min-height: 760px) {
+            .vz-phone-shell {
+              transform: scale(0.9);
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 390px) and (min-height: 800px) {
+            .vz-phone-shell {
+              transform: scale(0.98);
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 414px) and (min-height: 880px) {
+            .vz-phone-shell {
+              transform: scale(1.02);
+            }
           }
 
           body > header,
@@ -60,7 +91,7 @@ export default function StartProjectPage() {
             }
 
             .vz-phone-scroll {
-              padding-top: 4.75rem !important;
+              padding-top: 5.25rem !important;
               padding-bottom: 1.25rem !important;
             }
           }
@@ -101,8 +132,8 @@ export default function StartProjectPage() {
             <span className="mr-3 h-2.5 w-2.5 rounded-full bg-[#071124] shadow-[0_0_8px_rgba(47,92,255,0.45)]" />
           </div>
 
-          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-20 text-center [scrollbar-width:none] min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-20 sm:px-0 sm:pb-10 sm:pt-28">
-            <div className="mb-3 flex -translate-y-7 flex-col items-center min-[390px]:mb-4 min-[390px]:-translate-y-8 sm:mb-5">
+          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-24 text-center [scrollbar-width:none] min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-24 sm:px-0 sm:pb-10 sm:pt-28">
+            <div className="mb-3 flex -translate-y-4 flex-col items-center min-[390px]:mb-4 min-[390px]:-translate-y-5 sm:mb-5 sm:-translate-y-8">
               <h1
                 id="start-project-title"
                 className={`${anton.className} relative inline-block text-[clamp(3.15rem,15vw,4.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
@@ -111,7 +142,7 @@ export default function StartProjectPage() {
               </h1>
             </div>
 
-            <p className="-mt-9 mb-3 mx-auto w-[min(20.7rem,calc(100%-1.25rem))] text-center font-body text-[clamp(0.95rem,4.25vw,1.25rem)] font-black italic leading-tight text-white/90 [font-weight:900] min-[390px]:-mt-10 min-[390px]:mb-4 sm:-mt-11">
+            <p className="mx-auto mb-5 mt-1 w-[min(20.7rem,calc(100%-1.25rem))] text-center font-body text-[clamp(0.95rem,4.25vw,1.25rem)] font-black italic leading-tight text-white/90 [font-weight:900] min-[390px]:mb-6 min-[390px]:mt-2 md:-mt-11 md:mb-4">
               Nos conte a sua ideia e receba uma proposta personalizada.
             </p>
 

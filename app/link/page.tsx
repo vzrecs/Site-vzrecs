@@ -27,6 +27,37 @@ export default function LinkPage() {
             body {
               overflow: hidden;
             }
+
+            .vz-phone-shell {
+              width: 390px !important;
+              max-width: none !important;
+              transform: scale(0.78);
+              transform-origin: center center;
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 340px) and (min-height: 720px) {
+            .vz-phone-shell {
+              transform: scale(0.84);
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 360px) and (min-height: 760px) {
+            .vz-phone-shell {
+              transform: scale(0.9);
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 390px) and (min-height: 800px) {
+            .vz-phone-shell {
+              transform: scale(0.98);
+            }
+          }
+
+          @media (max-width: 767px) and (min-width: 414px) and (min-height: 880px) {
+            .vz-phone-shell {
+              transform: scale(1.02);
+            }
           }
 
           body > header,
@@ -61,7 +92,7 @@ export default function LinkPage() {
             }
 
             .vz-phone-scroll {
-              padding-top: 4.75rem !important;
+              padding-top: 5.25rem !important;
               padding-bottom: 1.25rem !important;
             }
           }
@@ -101,8 +132,8 @@ export default function LinkPage() {
             <span className="mr-3 h-2.5 w-2.5 rounded-full bg-[#071124] shadow-[0_0_8px_rgba(47,92,255,0.45)]" />
           </div>
 
-          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-20 text-center [scrollbar-width:none] min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-24 sm:px-0 sm:pb-10 sm:pt-28">
-            <div className="flex -translate-y-7 flex-col items-center min-[390px]:-translate-y-9 sm:-translate-y-10">
+          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-24 text-center [scrollbar-width:none] min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-28 sm:px-0 sm:pb-10 sm:pt-28">
+            <div className="flex -translate-y-4 flex-col items-center min-[390px]:-translate-y-5 sm:-translate-y-8">
               <h1
                 id="link-page-title"
                 className={`${anton.className} relative inline-block text-[clamp(3.65rem,18vw,5.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
