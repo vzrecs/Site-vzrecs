@@ -19,9 +19,16 @@ export const metadata: Metadata = {
 
 export default function LinkPage() {
   return (
-    <main className="relative z-[60] min-h-screen overflow-x-hidden bg-ink-black font-body text-white">
+    <main className="fixed inset-0 z-[60] h-[100dvh] overflow-hidden bg-ink-black font-body text-white md:relative md:inset-auto md:min-h-screen md:overflow-x-hidden">
       <style>
         {`
+          @media (max-width: 767px) {
+            html,
+            body {
+              overflow: hidden;
+            }
+          }
+
           body > header,
           body > footer {
             display: none;
@@ -61,7 +68,7 @@ export default function LinkPage() {
         `}
       </style>
 
-      <div className="relative flex min-h-screen items-center justify-center overflow-hidden px-3 py-4 min-[390px]:px-4 min-[390px]:py-5 sm:px-6 sm:py-6">
+      <div className="relative flex h-full items-center justify-center overflow-hidden px-3 py-2 min-[390px]:px-4 min-[390px]:py-3 sm:px-6 sm:py-6 md:min-h-screen">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-12%,rgba(255,35,35,0.14),transparent_31rem),radial-gradient(circle_at_50%_112%,rgba(255,35,35,0.08),transparent_24rem),linear-gradient(145deg,#050505_0%,#111111_44%,#050505_100%)]" />
         <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-red/[0.035] blur-3xl" />
 
@@ -69,7 +76,7 @@ export default function LinkPage() {
           aria-labelledby="link-page-title"
           className="vz-phone-shell relative aspect-[9/19.5] w-full max-w-[450px] overflow-visible rounded-[38px] border border-accent-red/80 bg-[linear-gradient(145deg,#260202_0%,#ff2323_18%,#5f0707_34%,#050505_54%,#b40d0d_78%,#ff5a5a_100%)] px-3 py-4 shadow-[0_30px_100px_rgba(0,0,0,0.72),0_0_36px_rgba(255,35,35,0.16),inset_0_0_0_1px_rgba(255,255,255,0.16)] backdrop-blur-2xl min-[390px]:rounded-[46px] min-[390px]:px-4 min-[390px]:py-5 sm:px-6 sm:py-7"
           style={{
-            width: "min(450px, calc(100vw - 1.5rem))"
+            width: "min(450px, calc(100vw - 1.5rem), calc((100dvh - 1rem) * 9 / 19.5))"
           }}
         >
           <div className="pointer-events-none absolute -left-[5px] top-[18%] h-14 w-1.5 rounded-l-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_-1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] sm:h-16" />
