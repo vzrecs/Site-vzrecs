@@ -71,7 +71,7 @@ export default function StartProjectPage() {
             }
 
             .vz-project-copy {
-              font-size: clamp(0.82rem, 3.75vw, 1rem) !important;
+              font-size: 0.95rem !important;
               margin-bottom: 0.75rem !important;
               margin-top: 0 !important;
             }
@@ -171,8 +171,8 @@ export default function StartProjectPage() {
             </div>
 
             <p className="vz-project-copy mx-auto mb-5 mt-1 w-[min(20.7rem,calc(100%-1.25rem))] text-center font-body text-[clamp(0.95rem,4.25vw,1.25rem)] font-black italic leading-tight text-white/90 [font-weight:900] min-[390px]:mb-6 min-[390px]:mt-2 md:-mt-11 md:mb-4">
-              <span className="block">Conte sua ideia e receba</span>
-              <span className="block whitespace-nowrap">uma proposta personalizada.</span>
+              <span className="block whitespace-nowrap">Conte sua ideia e receba uma</span>
+              <span className="block whitespace-nowrap">proposta personalizada.</span>
             </p>
 
             <ProjectBriefingForm />

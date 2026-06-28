@@ -7,27 +7,27 @@ const whatsappNumber = "5535984232883";
 
 const segmentOptions = [
   "Gastronomia",
-  "Clínica/Estética",
+  "Clinica/estética",
   "Academia",
   "Construtora",
-  "Imobiliária",
-  "Loja/Comércio",
+  "Imobiliaria",
+  "Loja/Comercio",
   "Arquiteto",
   "Engenheiro",
   "Festa",
   "Evento",
-  "Corporativo",
+  "Coporativo",
   "Casamento",
   "Outros"
 ];
 
 const serviceOptions = [
-  "Vídeo",
+  "Video",
   "Fotografia",
-  "Vídeo + Fotografia",
+  "Video + Fotografia",
   "Conteúdo mensal",
   "Cobertura de evento",
-  "Ensaio Fotográfico",
+  "Ensaio Fotografico",
   "Outros",
   "Ainda não sei"
 ];
@@ -82,7 +82,7 @@ function buildWhatsAppMessage(form: BriefingFormState) {
     `1. Nome: ${form.name}`,
     `2. Segmento: ${form.segment}`,
     `3. O que você precisa: ${form.service}`,
-    `4. Qual o seu objetivo: ${form.objective.join(", ")}`,
+    `4. Ojetivo: ${form.objective.join(", ")}`,
     `5. Data: ${form.deadline || "Não informado"}`,
     `6. Complemento: ${form.message || "Não informado"}`
   ].join("\n");
@@ -214,7 +214,7 @@ export function ProjectBriefingForm() {
   const fields: AccordionField[] = [
     {
       id: "name",
-      title: "1. Qual seu nome?",
+      title: "1. Qual é o seu nome?",
       required: true,
       content: (
         <input
@@ -244,7 +244,7 @@ export function ProjectBriefingForm() {
     },
     {
       id: "objective",
-      title: "4. Qual o seu objetivo?",
+      title: "4. Qual é o seu objetivo?",
       required: true,
       content: (
         <MultiOptionPicker
@@ -256,7 +256,7 @@ export function ProjectBriefingForm() {
     },
     {
       id: "deadline",
-      title: "5. Data",
+      title: "5. Data estimada",
       content: (
         <OptionPicker onChange={(value) => updateField("deadline", value)} options={deadlineOptions} value={form.deadline} />
       )
@@ -268,7 +268,7 @@ export function ProjectBriefingForm() {
         <textarea
           className={`${fieldClassName} min-h-28 resize-y py-4`}
           onChange={(event) => updateField("message", event.target.value)}
-          placeholder="Conte um pouco sobre a sua ideia:"
+          placeholder="Conte um pouco sobre sua ideia, necessidade ou o que vocÃª espera desse projeto."
           value={form.message}
         />
       )
@@ -374,7 +374,7 @@ export function ProjectBriefingForm() {
       </div>
 
       <button
-        className="mt-5 min-h-[3.5rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black max-md:mt-auto max-md:min-h-[3rem] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:min-h-[3.65rem] sm:text-lg"
+        className="mt-5 min-h-[3.5rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black max-md:mt-3 max-md:min-h-[3rem] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:min-h-[3.65rem] sm:text-lg"
         type="submit"
       >
         Enviar pelo WhatsApp
