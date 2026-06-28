@@ -67,7 +67,7 @@ export default function StartProjectPage() {
             }
 
             .vz-project-title {
-              font-size: clamp(3.45rem, 15.5vw, 4.4rem) !important;
+              font-size: clamp(3.7rem, 16.5vw, 4.85rem) !important;
             }
 
             .vz-project-copy {
@@ -166,12 +166,13 @@ export default function StartProjectPage() {
                 id="start-project-title"
                 className={`${anton.className} vz-project-title relative inline-block text-[clamp(3.15rem,15vw,4.85rem)] leading-[0.88] tracking-normal text-white [text-shadow:0_0_10px_rgba(255,255,255,0.26),0_0_24px_rgba(255,255,255,0.14)]`}
               >
-                <span>Formulario</span>
+                <span>Formulário</span>
               </h1>
             </div>
 
             <p className="vz-project-copy mx-auto mb-5 mt-1 w-[min(20.7rem,calc(100%-1.25rem))] text-center font-body text-[clamp(0.95rem,4.25vw,1.25rem)] font-black italic leading-tight text-white/90 [font-weight:900] min-[390px]:mb-6 min-[390px]:mt-2 md:-mt-11 md:mb-4">
-              Nos conte a sua ideia e receba uma proposta personalizada.
+              <span className="block">Conte sua ideia e receba</span>
+              <span className="block whitespace-nowrap">uma proposta personalizada.</span>
             </p>
 
             <ProjectBriefingForm />

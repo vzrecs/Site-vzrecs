@@ -62,7 +62,7 @@ export default function LinkPage() {
             .vz-phone-scroll {
               padding-left: 1.25rem !important;
               padding-right: 1.25rem !important;
-              padding-top: max(4rem, calc(env(safe-area-inset-top) + 3.5rem)) !important;
+              padding-top: max(4.65rem, calc(env(safe-area-inset-top) + 4.15rem)) !important;
               padding-bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem)) !important;
             }
 
@@ -76,15 +76,15 @@ export default function LinkPage() {
             }
 
             .vz-link-logo {
-              height: 9.25rem !important;
-              width: 9.25rem !important;
-              margin-top: 0.5rem !important;
+              height: 10rem !important;
+              width: 10rem !important;
+              margin-top: 0.35rem !important;
               margin-bottom: -0.35rem !important;
             }
 
             .vz-link-footer {
               padding-bottom: 0 !important;
-              transform: translateY(-2rem) !important;
+              transform: translateY(-2.25rem) !important;
             }
           }
 
