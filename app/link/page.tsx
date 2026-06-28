@@ -31,6 +31,9 @@ export default function LinkPage() {
             .vz-phone-shell {
               width: min(92vw, 430px) !important;
               max-width: 92vw !important;
+              height: calc(100dvh - 1rem) !important;
+              max-height: calc(100dvh - 1rem) !important;
+              aspect-ratio: auto !important;
               transform: none;
             }
           }
