@@ -67,7 +67,7 @@ export default function LinkPage() {
             }
 
             .vz-link-title {
-              font-size: clamp(3.25rem, 18vw, 4.85rem) !important;
+              font-size: clamp(3.55rem, 19.5vw, 5.25rem) !important;
             }
 
             .vz-rec-dot {
@@ -80,15 +80,15 @@ export default function LinkPage() {
             }
 
             .vz-link-logo {
-              height: 10rem !important;
-              width: 10rem !important;
-              margin-top: 0.35rem !important;
-              margin-bottom: -0.35rem !important;
+              height: 10.75rem !important;
+              width: 10.75rem !important;
+              margin-top: 0.15rem !important;
+              margin-bottom: -0.65rem !important;
             }
 
             .vz-link-footer {
               padding-bottom: 0 !important;
-              transform: translateY(-2.25rem) !important;
+              transform: translateY(-2.75rem) !important;
             }
           }
 
