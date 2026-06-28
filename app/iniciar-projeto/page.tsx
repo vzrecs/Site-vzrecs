@@ -29,34 +29,9 @@ export default function StartProjectPage() {
             }
 
             .vz-phone-shell {
-              width: 430px !important;
-              max-width: none !important;
-              transform: scale(0.71);
-              transform-origin: center center;
-            }
-          }
-
-          @media (max-width: 767px) and (min-width: 340px) and (min-height: 720px) {
-            .vz-phone-shell {
-              transform: scale(0.78);
-            }
-          }
-
-          @media (max-width: 767px) and (min-width: 360px) and (min-height: 760px) {
-            .vz-phone-shell {
-              transform: scale(0.84);
-            }
-          }
-
-          @media (max-width: 767px) and (min-width: 390px) and (min-height: 800px) {
-            .vz-phone-shell {
-              transform: scale(0.9);
-            }
-          }
-
-          @media (max-width: 767px) and (min-width: 414px) and (min-height: 880px) {
-            .vz-phone-shell {
-              transform: scale(0.94);
+              width: min(92vw, 430px) !important;
+              max-width: 92vw !important;
+              transform: none;
             }
           }
 
