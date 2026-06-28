@@ -29,12 +29,41 @@ export default function LinkPage() {
             }
 
             .vz-phone-shell {
-              width: min(92vw, 430px) !important;
-              max-width: 92vw !important;
-              height: calc(100dvh - 1rem) !important;
-              max-height: calc(100dvh - 1rem) !important;
+              width: 100vw !important;
+              max-width: 100vw !important;
+              height: 100dvh !important;
+              max-height: 100dvh !important;
               aspect-ratio: auto !important;
+              overflow: hidden !important;
+              border: 0 !important;
+              border-radius: 0 !important;
+              background: transparent !important;
+              box-shadow: none !important;
+              padding: 0 !important;
               transform: none;
+            }
+
+            .vz-page-stage {
+              padding: 0 !important;
+            }
+
+            .vz-phone-side-button,
+            .vz-phone-core,
+            .vz-phone-border,
+            .vz-phone-notch {
+              display: none !important;
+            }
+
+            .vz-phone-bg {
+              inset: 0 !important;
+              border-radius: 0 !important;
+            }
+
+            .vz-phone-scroll {
+              padding-left: 1.25rem !important;
+              padding-right: 1.25rem !important;
+              padding-top: max(4.75rem, calc(env(safe-area-inset-top) + 3.5rem)) !important;
+              padding-bottom: max(1.75rem, calc(env(safe-area-inset-bottom) + 1rem)) !important;
             }
           }
 
@@ -77,23 +106,23 @@ export default function LinkPage() {
         `}
       </style>
 
-      <div className="relative flex h-full items-center justify-center overflow-hidden px-3 py-2 min-[390px]:px-4 min-[390px]:py-3 sm:px-6 sm:py-6 md:min-h-screen">
+      <div className="vz-page-stage relative flex h-full items-center justify-center overflow-hidden px-3 py-2 max-md:p-0 min-[390px]:px-4 min-[390px]:py-3 sm:px-6 sm:py-6 md:min-h-screen">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_-12%,rgba(255,35,35,0.14),transparent_31rem),radial-gradient(circle_at_50%_112%,rgba(255,35,35,0.08),transparent_24rem),linear-gradient(145deg,#050505_0%,#111111_44%,#050505_100%)]" />
         <div className="absolute left-1/2 top-1/2 h-[34rem] w-[34rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent-red/[0.035] blur-3xl" />
 
         <section
           aria-labelledby="link-page-title"
-          className="vz-phone-shell relative aspect-[9/19.5] w-full max-w-[450px] overflow-visible rounded-[38px] border border-accent-red/80 bg-[linear-gradient(145deg,#260202_0%,#ff2323_18%,#5f0707_34%,#050505_54%,#b40d0d_78%,#ff5a5a_100%)] px-3 py-4 shadow-[0_30px_100px_rgba(0,0,0,0.72),0_0_36px_rgba(255,35,35,0.16),inset_0_0_0_1px_rgba(255,255,255,0.16)] backdrop-blur-2xl min-[390px]:rounded-[46px] min-[390px]:px-4 min-[390px]:py-5 sm:px-6 sm:py-7"
+          className="vz-phone-shell relative aspect-[9/19.5] w-full max-w-[450px] overflow-visible rounded-[38px] border border-accent-red/80 bg-[linear-gradient(145deg,#260202_0%,#ff2323_18%,#5f0707_34%,#050505_54%,#b40d0d_78%,#ff5a5a_100%)] px-3 py-4 shadow-[0_30px_100px_rgba(0,0,0,0.72),0_0_36px_rgba(255,35,35,0.16),inset_0_0_0_1px_rgba(255,255,255,0.16)] backdrop-blur-2xl max-md:h-[100dvh] max-md:w-screen max-md:max-w-none max-md:aspect-auto max-md:overflow-hidden max-md:rounded-none max-md:border-0 max-md:bg-transparent max-md:p-0 max-md:shadow-none min-[390px]:rounded-[46px] min-[390px]:px-4 min-[390px]:py-5 sm:px-6 sm:py-7"
           style={{
             width: "min(450px, calc(100vw - 1.5rem), calc((100dvh - 1rem) * 9 / 19.5))"
           }}
         >
-          <div className="pointer-events-none absolute -left-[5px] top-[18%] h-14 w-1.5 rounded-l-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_-1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] sm:h-16" />
-          <div className="pointer-events-none absolute -left-[5px] top-[31%] h-10 w-1.5 rounded-l-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_-1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] sm:h-11" />
-          <div className="pointer-events-none absolute -right-[5px] top-[25%] h-20 w-1.5 rounded-r-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] sm:h-24" />
+          <div className="vz-phone-side-button pointer-events-none absolute -left-[5px] top-[18%] h-14 w-1.5 rounded-l-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_-1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] max-md:hidden sm:h-16" />
+          <div className="vz-phone-side-button pointer-events-none absolute -left-[5px] top-[31%] h-10 w-1.5 rounded-l-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_-1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] max-md:hidden sm:h-11" />
+          <div className="vz-phone-side-button pointer-events-none absolute -right-[5px] top-[25%] h-20 w-1.5 rounded-r-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] max-md:hidden sm:h-24" />
 
-          <div className="pointer-events-none absolute inset-[5px] rounded-[33px] bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.10),inset_0_18px_34px_rgba(255,255,255,0.04)] min-[390px]:inset-[6px] min-[390px]:rounded-[40px]" />
-          <div className="pointer-events-none absolute inset-[10px] z-0 overflow-hidden rounded-[28px] bg-[#050505] min-[390px]:inset-[12px] min-[390px]:rounded-[34px]">
+          <div className="vz-phone-core pointer-events-none absolute inset-[5px] rounded-[33px] bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.10),inset_0_18px_34px_rgba(255,255,255,0.04)] max-md:hidden min-[390px]:inset-[6px] min-[390px]:rounded-[40px]" />
+          <div className="vz-phone-bg pointer-events-none absolute inset-[10px] z-0 overflow-hidden rounded-[28px] bg-[#050505] max-md:inset-0 max-md:rounded-none min-[390px]:inset-[12px] min-[390px]:rounded-[34px]">
             <Image
               alt=""
               aria-hidden="true"
@@ -105,12 +134,12 @@ export default function LinkPage() {
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.46)_0%,rgba(5,5,5,0.38)_42%,rgba(5,5,5,0.72)_100%)]" />
           </div>
-          <div className="pointer-events-none absolute inset-[10px] rounded-[28px] border border-white/[0.08] min-[390px]:inset-[12px] min-[390px]:rounded-[34px]" />
-          <div className="pointer-events-none absolute left-1/2 top-[15px] z-20 flex h-7 w-[102px] -translate-x-1/2 items-center justify-end rounded-full bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_8px_22px_rgba(0,0,0,0.45)] min-[390px]:top-[18px] min-[390px]:h-8 min-[390px]:w-[116px]">
+          <div className="vz-phone-border pointer-events-none absolute inset-[10px] rounded-[28px] border border-white/[0.08] max-md:hidden min-[390px]:inset-[12px] min-[390px]:rounded-[34px]" />
+          <div className="vz-phone-notch pointer-events-none absolute left-1/2 top-[15px] z-20 flex h-7 w-[102px] -translate-x-1/2 items-center justify-end rounded-full bg-black shadow-[inset_0_0_0_1px_rgba(255,255,255,0.05),0_8px_22px_rgba(0,0,0,0.45)] max-md:hidden min-[390px]:top-[18px] min-[390px]:h-8 min-[390px]:w-[116px]">
             <span className="mr-3 h-2.5 w-2.5 rounded-full bg-[#071124] shadow-[0_0_8px_rgba(47,92,255,0.45)]" />
           </div>
 
-          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-24 text-center [scrollbar-width:none] min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-28 sm:px-0 sm:pb-10 sm:pt-28">
+          <div className="vz-phone-scroll relative z-10 flex h-full min-h-0 flex-col overflow-y-auto overflow-x-hidden px-1 pb-7 pt-24 text-center [scrollbar-width:none] max-md:px-5 max-md:pb-8 max-md:pt-20 min-[390px]:px-2 min-[390px]:pb-8 min-[390px]:pt-28 sm:px-0 sm:pb-10 sm:pt-28">
             <div className="flex -translate-y-4 flex-col items-center min-[390px]:-translate-y-5 sm:-translate-y-8">
               <h1
                 id="link-page-title"
