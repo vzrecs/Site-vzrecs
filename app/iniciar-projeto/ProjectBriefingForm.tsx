@@ -375,7 +375,7 @@ export function ProjectBriefingForm() {
       </div>
 
       <button
-        className="mt-5 min-h-[3.5rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black max-md:mt-3 max-md:min-h-[3rem] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:min-h-[3.65rem] sm:text-lg"
+        className="mt-5 min-h-[3.5rem] w-full rounded-[18px] border border-accent-red/55 bg-accent-red px-4 text-center font-body text-[0.98rem] font-black italic text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#ff3a3a] hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.22)] focus:outline-none focus:ring-2 focus:ring-accent-red/80 focus:ring-offset-2 focus:ring-offset-ink-black max-md:mt-8 max-md:min-h-[3rem] min-[390px]:rounded-[20px] min-[390px]:px-5 sm:mt-7 sm:min-h-[3.65rem] sm:text-lg"
         type="submit"
       >
         Enviar pelo WhatsApp
