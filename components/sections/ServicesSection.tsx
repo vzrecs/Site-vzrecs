@@ -22,7 +22,9 @@ export function ServicesSection() {
             </Reveal>
             <Reveal delay={0.12} y={22} blur={6} className="order-3 max-w-[560px]">
               <div className="max-w-[540px] space-y-4 whitespace-pre-line text-justify text-[1.04rem] leading-7 text-ink-muted [text-align-last:left] lg:mt-7 lg:text-[1.14rem] lg:leading-8">
-                <p>{services.subtitle}</p>
+                {services.subtitle.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
             </Reveal>
           </div>

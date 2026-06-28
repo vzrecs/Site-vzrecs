@@ -1,18 +1,17 @@
 import { imageAssets, videoAssets } from "@/lib/assets";
 
 export const whatsappBudgetUrl =
-  "https://wa.me/5535984232883?text=Vim%20do%20instagram%20e%20gostar%C3%ADa%20de%20fazer%20um%20or%C3%A7amento!";
+  "https://wa.me/5535984232883?text=Vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento%20%F0%9F%98%8A";
 
 export const siteContent = {
   brand: "Vz Recs",
-  whatsappUrl: "https://wa.me/",
+  whatsappUrl: whatsappBudgetUrl,
   hero: {
     eyebrow: "Produção audiovisual premium",
     title:
       "Vídeos comerciais que posicionam sua marca em outro nível",
     subtitles: [
-      "Produção audiovisual para empresas que querem se posicionar melhor, prender atenção e transformar imagem em valor real. Criamos vídeos e conteúdos visuais com direção, estética e estratégia para destacar o que sua marca tem de melhor, transmitir mais profissionalismo e gerar uma conexão mais forte com o público.",
-      "Cada produção é pensada para valorizar a identidade do seu negócio, comunicar sua essência com clareza e fazer com que sua marca seja percebida de forma mais forte, moderna e desejada. Mais do que apenas imagens bonitas, entregamos conteúdos com intenção, ritmo e impacto visual, preparados para gerar presença, autoridade e conexão no digital."
+      "Criamos conteúdos visuais com planejamento, direção e uma entrega que impressiona pela estética e pelo profissionalismo em cada etapa do processo."
     ],
     primaryCta: "Solicitar orçamento",
     secondaryCta: "Sobre nós",
@@ -20,28 +19,26 @@ export const siteContent = {
   },
   positioning: {
     eyebrow: "Posicionamento",
-    title: "Sua marca pode ser excelente!",
+    title: "Sua marca",
     body:
-      "Mas hoje, a forma como ela se apresenta define a maneira como o público enxerga seu valor. Um vídeo bem produzido, uma imagem bem iluminada e uma edição feita com intenção transmitem profissionalismo, autoridade e desejo de compra.",
+      "Pode ser excelente, mas hoje, a forma como se apresenta define o valor percebido pelo público.",
     support:
-      "É por isso que criamos conteúdos visuais pensados para posicionar empresas, marcas e negócios locais com mais impacto, estética e presença.",
+      "Nós cuidamos de tudo — do roteiro à entrega final.\n\n- Roteirização\n- Direção criativa\n- Edição profissional",
     image: imageAssets.positioning
   },
   portfolio: {
     eyebrow: "REELS ESTRATÉGICOS",
-    title: "Vídeos que vendem!",
+    title: "Venda mais",
     subtitle:
-      "Produção audiovisual intencionalmente pensada do início ao fim para prender a atenção de quem assiste. Cada detalhe, das legendas dinâmicas ao motion graphics e sound design, é criado estrategicamente para guiar o olhar, gerar retenção e transformar a percepção da sua marca em mais valor, mais desejo e mais vendas.",
+      "Produção audiovisual intencionalmente pensada do início ao fim para guiar o olhar de quem assiste.\n\nCada detalhe, das legendas ao sound design e motion graphics, é pensado estrategicamente para reter atenção.\n\n- Publicidade\n- Reels profissionais\n- Eventos corporativos",
     videos: videoAssets,
     photos: imageAssets.portfolioPhotos
   },
   about: {
     eyebrow: "Sobre",
-    title: "Sobre a Vz Recs",
+    title: "Sobre nós",
     paragraphs: [
-      "A Vz Recs é uma produtora audiovisual focada em criar vídeos e imagens para empresas, marcas e negócios que querem se apresentar de forma mais profissional.",
-      "Há pouco mais de um ano no mercado, seguimos em constante evolução, crescendo rapidamente e aprimorando cada detalhe do nosso trabalho todos os dias. Acreditamos que evolução constante e compromisso são a base para entregar produções cada vez mais fortes, estratégicas e profissionais.",
-      "Nosso trabalho une direção visual, captação, edição e estratégia para transformar conteúdos em peças que aumentam a percepção de valor da sua marca e fortalecem sua presença no mercado."
+      "Em constante evolução, unimos direção visual, captação, edição e estratégia para criar conteúdos que elevam a percepção de valor da marca e fortalecem sua presença no mercado."
     ],
     image: imageAssets.about
   },
@@ -53,17 +50,17 @@ export const siteContent = {
       {
         title: "Briefing",
         description:
-          "Entendemos o objetivo do conteúdo, o público, a mensagem principal e o estilo visual desejado."
+          "Entendemos o objetivo, público-alvo e mensagem a ser transmitida."
       },
       {
         title: "Direção criativa",
         description:
-          "Definimos a ideia, narrativa, estética, referências, roteiro e pontos principais da produção."
+          "Escrevemos o roteiro, analisamos as referências e definimos a estética."
       },
       {
         title: "Captação",
         description:
-          "Gravamos com atenção à luz, enquadramento, movimento de câmera, composição e intenção visual."
+          "Gravamos seguindo o processo, com atenção ao enquadramento, composição e narrativa."
       },
       {
         title: "Edição",
@@ -84,10 +81,10 @@ export const siteContent = {
   },
   services: {
     eyebrow: "Serviços",
-    title:
-      "Produção audiovisual para marcas, empresas e momentos importantes",
-    subtitle:
-      "Do roteiro à entrega final, criamos conteúdos pensados para redes sociais, campanhas, tráfego pago, presença digital e registros fotográficos profissionais.",
+    title: "Fotografia",
+    subtitle: [
+      "Fotografamos com direção, sensibilidade e atenção aos detalhes para registrar não só o que aconteceu, mas a emoção de cada instante.\n\n- Ensaios fotográficos\n- Eventos e celebrações\n- Registros profissionais"
+    ],
     items: [
       {
         title: "Vídeos comerciais",
@@ -121,7 +118,7 @@ export const siteContent = {
           "Cada imagem é pensada com atenção à luz, composição, movimento e estética."
       },
       {
-        title: "Edição com retenção",
+        title: "Edição profissional",
         description:
           "Usamos ritmo, cortes, efeitos sonoros e legendas dinâmicas para manter a atenção do público."
       },
@@ -138,7 +135,7 @@ export const siteContent = {
     ]
   },
   finalCta: {
-    title: "Pronto para fazer sua marca parecer mais profissional?",
+    title: "Pronto para elevar o patamar?",
     subtitle:
       "Se você quer vídeos e imagens com mais impacto, estética e intenção, vamos conversar sobre o melhor formato para o seu negócio.",
     cta: "Solicitar orçamento no WhatsApp",
