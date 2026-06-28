@@ -62,7 +62,7 @@ export default function LinkPage() {
             .vz-phone-scroll {
               padding-left: 1.25rem !important;
               padding-right: 1.25rem !important;
-              padding-top: max(2rem, calc(env(safe-area-inset-top) + 1.5rem)) !important;
+              padding-top: max(3.25rem, calc(env(safe-area-inset-top) + 2.75rem)) !important;
               padding-bottom: max(1rem, calc(env(safe-area-inset-bottom) + 0.75rem)) !important;
             }
 
