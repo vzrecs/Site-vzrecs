@@ -67,7 +67,11 @@ export default function LinkPage() {
             }
 
             .vz-link-title {
-              font-size: clamp(3rem, 17vw, 4.55rem) !important;
+              font-size: clamp(3.25rem, 18vw, 4.85rem) !important;
+            }
+
+            .vz-rec-dot {
+              margin-left: 0.25rem !important;
             }
 
             .vz-link-subtitle,
