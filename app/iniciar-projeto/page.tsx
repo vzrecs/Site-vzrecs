@@ -75,6 +75,17 @@ export default function StartProjectPage() {
               margin-bottom: 0.75rem !important;
               margin-top: 0 !important;
             }
+
+            .vz-project-bg {
+              background:
+                radial-gradient(circle at 50% 0%, rgba(255, 35, 35, 0.15), transparent 18rem),
+                radial-gradient(circle at 100% 48%, rgba(255, 35, 35, 0.10), transparent 16rem),
+                linear-gradient(180deg, #050505 0%, #111111 44%, #050505 100%) !important;
+            }
+
+            .vz-project-bg img {
+              display: none !important;
+            }
           }
 
           body > header,
@@ -131,7 +142,7 @@ export default function StartProjectPage() {
           <div className="vz-phone-side-button pointer-events-none absolute -right-[5px] top-[25%] h-20 w-1.5 rounded-r-full bg-[linear-gradient(180deg,#4d0505,#ff2323,#190101)] shadow-[inset_1px_0_1px_rgba(255,255,255,0.22),0_0_14px_rgba(255,35,35,0.22)] max-md:hidden sm:h-24" />
 
           <div className="vz-phone-core pointer-events-none absolute inset-[5px] rounded-[33px] bg-[#050505] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.10),inset_0_18px_34px_rgba(255,255,255,0.04)] max-md:hidden min-[390px]:inset-[6px] min-[390px]:rounded-[40px]" />
-          <div className="vz-phone-bg pointer-events-none absolute inset-[10px] z-0 overflow-hidden rounded-[28px] bg-[#050505] max-md:inset-0 max-md:rounded-none min-[390px]:inset-[12px] min-[390px]:rounded-[34px]">
+          <div className="vz-phone-bg vz-project-bg pointer-events-none absolute inset-[10px] z-0 overflow-hidden rounded-[28px] bg-[#050505] max-md:inset-0 max-md:rounded-none min-[390px]:inset-[12px] min-[390px]:rounded-[34px]">
             <Image
               alt=""
               aria-hidden="true"
