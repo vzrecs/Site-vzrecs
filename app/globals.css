@@ -109,6 +109,23 @@ video {
   will-change: clip-path;
 }
 
+@keyframes heartbeat-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+.heartbeat-logo {
+  animation: heartbeat-pulse 8.5s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -126,6 +143,11 @@ video {
   .hero-word-write__text {
     animation: none;
     clip-path: inset(0 0 0 0);
+    will-change: auto;
+  }
+
+  .heartbeat-logo {
+    animation: none;
     will-change: auto;
   }
 }

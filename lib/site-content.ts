@@ -13,6 +13,11 @@ export const siteContent = {
     subtitles: [
       "Criamos conteúdos visuais com planejamento, direção e uma entrega que impressiona pela estética e pelo profissionalismo em cada etapa do processo."
     ],
+    highlights: [
+      { value: "01", label: "Direção criativa do briefing à entrega" },
+      { value: "02", label: "Vídeos, reels e fotografia comercial" },
+      { value: "03", label: "Arquivos prontos para publicar" }
+    ],
     primaryCta: "Solicitar orçamento",
     secondaryCta: "Sobre nós",
     image: imageAssets.hero

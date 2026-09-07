@@ -7,7 +7,7 @@ import { navigationItems } from "@/lib/navigation";
 
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState("#inicio");
 
   useEffect(() => {
     const updateHeader = () => setIsScrolled(window.scrollY > 24);
@@ -19,35 +19,36 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
-    if (!isMenuOpen) {
-      return;
-    }
+    const sectionItems = navigationItems.filter((item) => item.href.startsWith("#"));
 
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMenuOpen(false);
-      }
+    const updateActiveHref = () => {
+      const currentItem = sectionItems.reduce((current, item) => {
+        const section = document.querySelector(item.href);
+
+        if (!(section instanceof HTMLElement)) {
+          return current;
+        }
+
+        return section.offsetTop <= window.scrollY + 140 ? item : current;
+      }, sectionItems[0]);
+
+      setActiveHref(currentItem?.href ?? "#inicio");
     };
 
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("keydown", handleKeyDown);
-    window.addEventListener("resize", handleResize);
+    updateActiveHref();
+    window.addEventListener("scroll", updateActiveHref, { passive: true });
+    window.addEventListener("hashchange", updateActiveHref);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("scroll", updateActiveHref);
+      window.removeEventListener("hashchange", updateActiveHref);
     };
-  }, [isMenuOpen]);
+  }, []);
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ease-out ${
-        isScrolled || isMenuOpen
+        isScrolled
           ? "border-b border-white/[0.1] bg-ink-black/78 shadow-[0_18px_70px_rgba(0,0,0,0.34)] backdrop-blur-2xl"
           : "border-b border-transparent bg-transparent shadow-none backdrop-blur-0"
       }`}
@@ -59,7 +60,7 @@ export function SiteHeader() {
       >
         <Link
           href="#inicio"
-          className="flex shrink-0 items-center transition duration-300 hover:opacity-85"
+          className="hidden shrink-0 items-center transition duration-300 hover:opacity-85 sm:flex"
           aria-label="Vz Recs - voltar ao início"
         >
           <Image
@@ -76,36 +77,13 @@ export function SiteHeader() {
           />
         </Link>
 
-        <button
-          type="button"
-          aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-          onClick={() => setIsMenuOpen((open) => !open)}
-          className="ml-auto inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-white/90 transition duration-300 hover:border-accent-red/60 hover:text-white focus:outline-none focus:ring-2 focus:ring-accent-red/70 focus:ring-offset-2 focus:ring-offset-ink-black lg:hidden"
+        <nav
+          className="absolute left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border border-white/10 bg-[#030303] p-2 shadow-[0_18px_60px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:gap-3"
+          aria-label="Principal"
         >
-          <span className="relative h-4 w-6">
-            <span
-              className={`absolute left-0 top-0 h-px w-6 bg-current transition duration-300 ease-out ${
-                isMenuOpen ? "translate-y-[7px] rotate-45" : ""
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-[7px] h-px w-6 bg-current transition duration-300 ease-out ${
-                isMenuOpen ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`absolute left-0 top-[14px] h-px w-6 bg-current transition duration-300 ease-out ${
-                isMenuOpen ? "-translate-y-[7px] -rotate-45" : ""
-              }`}
-            />
-          </span>
-        </button>
-
-        <nav className="ml-auto hidden items-center justify-end gap-8 lg:flex xl:gap-10" aria-label="Principal">
           {navigationItems.map((item) => {
             const opensInNewTab = item.href.startsWith("https://");
+            const isActive = activeHref === item.href;
 
             return (
               <Link
@@ -113,37 +91,32 @@ export function SiteHeader() {
                 href={item.href}
                 target={opensInNewTab ? "_blank" : undefined}
                 rel={opensInNewTab ? "noopener noreferrer" : undefined}
-                className="group relative py-2 font-body text-sm font-bold uppercase tracking-[0.04em] text-white/[0.76] transition duration-300 hover:text-white xl:text-base"
+                aria-label={`Ir para ${item.label}`}
+                aria-current={isActive ? "page" : undefined}
+                className={`group/nav relative flex h-11 w-11 items-center overflow-hidden rounded-full border font-body text-sm font-bold uppercase tracking-[0.04em] text-white transition-[width,background-color,border-color,color] duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-red/80 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-black sm:h-12 sm:w-12 sm:hover:w-[10.5rem] sm:focus-visible:w-[10.5rem] ${
+                  isActive
+                    ? "border-accent-red/70 bg-accent-red/18"
+                    : "border-white/10 bg-[#050505] hover:border-accent-red/50 hover:bg-accent-red/12 focus-visible:border-accent-red/60 focus-visible:bg-accent-red/12"
+                }`}
               >
-                <span>{item.label}</span>
-                <span className="absolute inset-x-0 bottom-1 h-px origin-left scale-x-0 bg-accent-red opacity-80 transition duration-300 group-hover:scale-x-100" />
-              </Link>
-            );
-          })}
-        </nav>
-
-      </div>
-      <div
-        id="mobile-menu"
-        className={`overflow-hidden border-t border-white/10 bg-ink-black/92 backdrop-blur-2xl transition-[max-height,opacity] duration-300 ease-out lg:hidden ${
-          isMenuOpen ? "max-h-[calc(100svh-4rem)] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <nav className="flex flex-col px-5 py-8 sm:px-8" aria-label="Menu mobile">
-          {navigationItems.map((item) => {
-            const opensInNewTab = item.href.startsWith("https://");
-
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                target={opensInNewTab ? "_blank" : undefined}
-                rel={opensInNewTab ? "noopener noreferrer" : undefined}
-                onClick={() => setIsMenuOpen(false)}
-                className="group relative flex min-h-14 items-center border-b border-white/[0.08] font-body text-lg font-bold uppercase tracking-[0.08em] text-white/82 transition duration-300 last:border-b-0 hover:text-white"
-              >
-                <span>{item.label}</span>
-                <span className="ml-auto h-px w-8 origin-right scale-x-0 bg-accent-red transition duration-300 group-hover:scale-x-100" />
+                <span className="relative flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
+                  <Image
+                    src={item.icon}
+                    alt=""
+                    width={28}
+                    height={28}
+                    className="h-5 w-5 object-contain sm:h-6 sm:w-6"
+                    unoptimized
+                  />
+                </span>
+                <span className="hidden max-w-0 -translate-x-2 whitespace-nowrap opacity-0 transition-[max-width,opacity,transform] duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none group-hover/nav:max-w-28 group-hover/nav:translate-x-0 group-hover/nav:opacity-100 group-focus-visible/nav:max-w-28 group-focus-visible/nav:translate-x-0 group-focus-visible/nav:opacity-100 sm:inline-block">
+                  {item.label}
+                </span>
+                <span
+                  className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent-red transition-opacity duration-300 motion-reduce:transition-none ${
+                    isActive ? "opacity-100" : "opacity-0"
+                  }`}
+                />
               </Link>
             );
           })}
