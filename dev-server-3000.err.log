@@ -1,0 +1,228 @@
+(node:22980) Warning: Failed to load the ES module: D:\Trabalho\Clientes\site vzrecs\tailwind.config.ts. Make sure to set "type": "module" in the nearest package.json file or use the .mjs extension.
+(Use `node --trace-warnings ...` to show where the warning was created)
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ The requested resource isn't a valid image for /assets/videos/conteudo/conteudo-02.jpg received null
+ ⨯ The requested resource isn't a valid image for /assets/videos/conteudo/conteudo-02.jpg received null
+ ⨯ ./components/sections/PortfolioSection.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\PortfolioSection.tsx
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/PortfolioSection.tsx
+./app/page.tsx
+ ⨯ ./components/sections/PortfolioSection.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\PortfolioSection.tsx
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/PortfolioSection.tsx
+./app/page.tsx
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\Trabalho\Clientes\site vzrecs\.next\cache\webpack\client-development-fallback\0.pack.gz_' -> 'D:\Trabalho\Clientes\site vzrecs\.next\cache\webpack\client-development-fallback\0.pack.gz'
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⚠ Fast Refresh had to perform a full reload. Read more: https://nextjs.org/docs/messages/fast-refresh-reload
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3022854723'
+}
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '64488871'
+}
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '64488871'
+}
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>)
+    at stringify (<anonymous>) {
+  digest: '64488871'
+}
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3022854723'
+}
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3022854723'
+}
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  digest: '1682032842'
+}
+ ⨯ Error: Could not find the module "D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\next-devtools\userspace\app\segment-explorer-node.js#SegmentViewNode" in the React Client Manifest. This is probably a bug in the React Server Components bundler.
+    at stringify (<anonymous>) {
+  digest: '3022854723'
+}
+[TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function]
+ ⨯ [TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- D:\Trabalho\Clientes\site vzrecs\.next\server\webpack-runtime.js
+- D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\require.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\load-components.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\utils.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\options.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\index.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\parse-module.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\get-page-static-info.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-server.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: __webpack_modules__[moduleId] is not a function] {
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- D:\Trabalho\Clientes\site vzrecs\.next\server\webpack-runtime.js
+- D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\require.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\load-components.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\utils.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\options.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\index.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\parse-module.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\get-page-static-info.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-server.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ Error: Cannot find module './331.js'
+Require stack:
+- D:\Trabalho\Clientes\site vzrecs\.next\server\webpack-runtime.js
+- D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\require.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\load-components.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\utils.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\options.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\index.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\parse-module.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\get-page-static-info.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-server.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (D:\Trabalho\Clientes\site vzrecs\.next\server\app\page.js:2:42248)
+    at Object.<anonymous> (D:\Trabalho\Clientes\site vzrecs\.next\server\app\page.js:2:42302) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- D:\Trabalho\Clientes\site vzrecs\.next\server\webpack-runtime.js
+- D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\require.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\load-components.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\utils.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\options.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\index.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\parse-module.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\get-page-static-info.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-server.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+Error: Cannot find module './331.js'
+Require stack:
+- D:\Trabalho\Clientes\site vzrecs\.next\server\webpack-runtime.js
+- D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\require.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\load-components.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\utils.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\options.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\index.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\parse-module.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\get-page-static-info.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-server.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (D:\Trabalho\Clientes\site vzrecs\.next\server\app\page.js:2:42248)
+    at Object.<anonymous> (D:\Trabalho\Clientes\site vzrecs\.next\server\app\page.js:2:42302) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array],
+  page: '/'
+}
+ ⨯ Error: Cannot find module './611.js'
+Require stack:
+- D:\Trabalho\Clientes\site vzrecs\.next\server\webpack-runtime.js
+- D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\require.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\load-components.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\utils.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\options.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\swc\index.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\parse-module.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\build\analysis\get-page-static-info.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-utils\setup-dev-bundler.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\router-server.js
+- D:\Trabalho\Clientes\site vzrecs\node_modules\next\dist\server\lib\start-server.js
+    at <unknown> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:325)
+    at Object.<anonymous> (D:\Trabalho\Clientes\site vzrecs\.next\server\pages\_document.js:1:371) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [Array]
+}
+[TypeError: Cannot read properties of undefined (reading '/_app')]
+ ⨯ [TypeError: Cannot read properties of undefined (reading '/_app')]
+[TypeError: Cannot read properties of undefined (reading '/_app')]

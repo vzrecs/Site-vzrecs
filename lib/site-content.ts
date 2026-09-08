@@ -23,13 +23,11 @@ export const siteContent = {
     image: imageAssets.hero
   },
   positioning: {
-    eyebrow: "Posicionamento",
-    title: "Sua marca",
-    body:
-      "Pode ser excelente, mas hoje, a forma como se apresenta define o valor percebido pelo público.",
-    support:
-      "Nós cuidamos de tudo — do roteiro à entrega final.\n\n- Roteirização\n- Direção criativa\n- Edição profissional",
-    image: imageAssets.positioning
+    paragraphs: [
+      "A VZ RECS transforma o que uma empresa faz em conteúdos que as pessoas realmente querem assistir.",
+      "Unimos o olhar de um criador de conteúdo à qualidade de uma produtora, transformando ideias e serviços em reels profissionais.",
+      "Não criamos apenas vídeos bonitos. Criamos narrativas que geram retenção, fortalecem o posicionamento das marcas e as aproximam das pessoas certas."
+    ]
   },
   portfolio: {
     eyebrow: "REELS ESTRATÉGICOS",
@@ -43,7 +41,8 @@ export const siteContent = {
     eyebrow: "Sobre",
     title: "Sobre nós",
     paragraphs: [
-      "Em constante evolução, unimos direção visual, captação, edição e estratégia para criar conteúdos que elevam a percepção de valor da marca e fortalecem sua presença no mercado."
+      "A Vz Recs é uma produtora audiovisual que entende o conteúdo antes de ligar a câmera.",
+      "Do roteiro à direção, da captação à edição, conduzimos cada etapa com técnica, criatividade e intenção — para que as empresas não apenas apareçam, mas sejam lembradas."
     ],
     image: imageAssets.about
   },
@@ -140,10 +139,10 @@ export const siteContent = {
     ]
   },
   finalCta: {
-    title: "Pronto para elevar o patamar?",
+    title: ["Bora criar com", "a VZ!"],
     subtitle:
       "Se você quer vídeos e imagens com mais impacto, estética e intenção, vamos conversar sobre o melhor formato para o seu negócio.",
-    cta: "Solicitar orçamento no WhatsApp",
+    cta: "Solicitar orçamento",
     note: "Atendimento para empresas, marcas e negócios locais."
   }
 } as const;

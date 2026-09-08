@@ -1,33 +1,109 @@
+"use client";
+
 import Link from "next/link";
+import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { siteContent } from "@/lib/site-content";
-import { Reveal } from "@/components/ui/Reveal";
-import { SectionShell } from "@/components/ui/SectionShell";
+import styles from "./FinalCtaSection.module.css";
+
+const ease = [0.76, 0, 0.24, 1] as const;
+
+function ArrowIcon() {
+  return (
+    <span className={styles.arrow} aria-hidden="true">
+      <svg viewBox="0 0 20 20" focusable="false">
+        <path d="M5 15 15 5M7 5h8v8" />
+      </svg>
+    </span>
+  );
+}
 
 export function FinalCtaSection() {
   const { finalCta, whatsappUrl } = siteContent;
+  const reduced = !!useReducedMotion();
 
   return (
-    <SectionShell id="contato" className="scroll-mt-0 border-y border-white/10 bg-ink-panel">
-      <div className="relative overflow-hidden px-0 py-10 text-center">
-        <Reveal y={16} blur={4}>
-          <div className="mx-auto mb-10 h-px w-24 bg-accent-red" />
-        </Reveal>
-        <Reveal delay={0.1} y={30} blur={8}>
-        <h2 className="mx-auto max-w-[880px] font-display text-6xl uppercase leading-[0.9] tracking-[-0.006em] text-white sm:text-7xl lg:text-[5.7rem]">
-          {finalCta.title}
-        </h2>
-        </Reveal>
-        <Reveal delay={0.22} y={18} blur={5} className="mt-12">
+    <motion.section
+      id="contato"
+      className={styles.section}
+      initial={reduced ? false : "hidden"}
+      whileInView="visible"
+      viewport={{ once: false, amount: 0.24 }}
+    >
+      <motion.div
+        className={styles.ambient}
+        aria-hidden="true"
+        variants={{
+          hidden: { x: 110, opacity: 0.18 },
+          visible: { x: 0, opacity: 1 }
+        }}
+        transition={{ duration: reduced ? 0.01 : 1.15, ease }}
+      />
+      <div className={styles.inner}>
+        <div className={styles.titleMask}>
+          <motion.h2
+            variants={{
+              hidden: { opacity: 0, scale: 0.975, filter: "blur(16px)" },
+              visible: { opacity: 1, scale: 1, filter: "blur(0px)" }
+            }}
+            transition={{ duration: reduced ? 0.01 : 0.82, ease, delay: reduced ? 0 : 0.08 }}
+          >
+            {finalCta.title.map(line => (
+              <span key={line} className={styles.titleLine}>{line}</span>
+            ))}
+          </motion.h2>
+        </div>
+        <motion.div
+          className={styles.actionReveal}
+          variants={{
+            hidden: { y: 28, opacity: 0 },
+            visible: { y: 0, opacity: 1 }
+          }}
+          transition={{ duration: reduced ? 0.01 : 0.72, ease, delay: reduced ? 0 : 0.36 }}
+        >
           <Link
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex min-h-12 origin-center items-center text-[0.98rem] font-bold uppercase tracking-[0.08em] text-white transition duration-300 ease-out after:absolute after:inset-x-0 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-accent-red after:transition after:duration-500 after:ease-out hover:scale-[1.035] hover:text-white hover:after:scale-x-100 sm:text-[1.05rem]"
+            className={styles.button}
           >
-            SOLICITAR ORÇAMENTO
+            <span>{finalCta.cta}</span>
+            <ArrowIcon />
           </Link>
-        </Reveal>
+          <button
+            type="button"
+            className={styles.button}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <span>Voltar ao topo</span>
+            <ArrowIcon />
+          </button>
+        </motion.div>
+        <motion.div
+          className={styles.socials}
+          aria-label="Redes sociais"
+          variants={{
+            hidden: { y: 16, opacity: 0 },
+            visible: { y: 0, opacity: 1 }
+          }}
+          transition={{ duration: reduced ? 0.01 : 0.55, ease, delay: reduced ? 0 : 0.5 }}
+        >
+          <Image
+            src="/assets/icons/social/instagram-brand.png"
+            alt="Instagram"
+            width={114}
+            height={114}
+            className={styles.socialIcon}
+          />
+          <Image
+            src="/assets/icons/social/youtube-brand.png"
+            alt="YouTube"
+            width={124}
+            height={95}
+            className={`${styles.socialIcon} ${styles.youtubeIcon}`}
+          />
+        </motion.div>
       </div>
-    </SectionShell>
+    </motion.section>
   );
 }

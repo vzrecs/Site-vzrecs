@@ -10,7 +10,7 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-  title: "VZ RECS | Links",
+  title: "Vz Recs | Links",
   robots: {
     index: false,
     follow: false
@@ -197,7 +197,7 @@ export default function LinkPage() {
             <div className="vz-logo-float vz-link-logo relative mx-auto mb-2 mt-auto flex h-36 w-36 -translate-y-2 items-center justify-center [animation:vz-logo-float_3.8s_ease-in-out_infinite] min-[390px]:h-44 min-[390px]:w-44 sm:h-48 sm:w-48 sm:-translate-y-4">
               <span className="pointer-events-none absolute inset-7 -z-10 rounded-full bg-accent-red/12 blur-xl" />
               <Image
-                alt="VZ RECS"
+                alt="Vz Recs"
                 className="relative z-10 h-full w-full object-contain"
                 height={144}
                 priority

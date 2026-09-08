@@ -1,0 +1,68 @@
+﻿.viewport {
+  --gap: 24px;
+  --card-width: calc((100% - 32px) / 3);
+  --card-height: 100%;
+  position: absolute;
+  top: 0;
+  right: -5%;
+  width: 225%;
+  height: 100%;
+  overflow: hidden;
+  contain: layout paint style;
+  isolation: isolate;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 94%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 94%, transparent);
+}
+
+.track, .sequence, .fallback { display: flex; }
+.track {
+  width: max-content;
+  height: var(--card-height);
+  animation: drift var(--duration, 65s) linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  contain: layout paint style;
+}
+.sequence {
+  flex: none;
+  gap: var(--gap);
+  padding-right: var(--gap);
+}
+.slide, .fallback img {
+  flex: 0 0 var(--card-width);
+  width: var(--card-width);
+  max-width: none;
+  height: var(--card-height);
+  object-fit: cover;
+  object-position: center;
+  border: 0;
+  outline: 0;
+  border-radius: 14px;
+  box-shadow: none;
+  background: transparent;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+.fallback { display: none; gap: var(--gap); }
+/* Each group includes its trailing gap: the second group exactly replaces the first. */
+@keyframes drift {
+  from { transform: translate3d(calc(-1 * var(--entry-offset)), 0, 0); }
+  to { transform: translate3d(calc(-1 * var(--distance) - var(--entry-offset)), 0, 0); }
+}
+
+@media (max-width: 767px) {
+  .viewport {
+    right: 0;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+  }
+  .slide, .fallback img { border-radius: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track { display: none; animation: none; }
+  .fallback { display: flex; }
+}

@@ -67,7 +67,7 @@ export function DifferentialsSection() {
                   >
                     <Image
                       src={photo}
-                      alt="Portfólio fotográfico da VZ RECS"
+                      alt="Portfólio fotográfico da Vz Recs"
                       fill
                       sizes="(min-width: 1024px) 31vw, (min-width: 640px) 44vw, 78vw"
                       className="object-cover"
@@ -99,7 +99,7 @@ export function DifferentialsSection() {
               <div className="absolute inset-0">
                 <Image
                   src={photo}
-                  alt="Portfólio fotográfico da VZ RECS"
+                  alt="Portfólio fotográfico da Vz Recs"
                   fill
                   sizes="268px"
                   className="object-cover"

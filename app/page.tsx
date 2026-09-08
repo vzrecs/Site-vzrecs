@@ -1,11 +1,9 @@
 import { AboutSection } from "@/components/sections/AboutSection";
-import { DifferentialsSection } from "@/components/sections/DifferentialsSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { PositioningSection } from "@/components/sections/PositioningSection";
-import { ProcessSection } from "@/components/sections/ProcessSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
+import styles from "./page.module.css";
 
 export default function Home() {
   return (
@@ -13,11 +11,10 @@ export default function Home() {
       <HeroSection />
       <PositioningSection />
       <PortfolioSection />
-      <ServicesSection />
-      <AboutSection />
-      <DifferentialsSection />
-      <ProcessSection />
-      <FinalCtaSection />
+      <div className={styles.closingFlow}>
+        <AboutSection />
+        <FinalCtaSection />
+      </div>
     </main>
   );
 }

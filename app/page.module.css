@@ -1,0 +1,34 @@
+.closingFlow {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #050505;
+}
+
+.closingFlow > * {
+  position: relative;
+  z-index: 1;
+}
+
+.closingFlow::before {
+  position: absolute;
+  top: 30%;
+  right: -14%;
+  z-index: 0;
+  width: min(62vw, 980px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 35, 35, .1);
+  content: "";
+  filter: blur(115px);
+  pointer-events: none;
+}
+
+@media (max-width: 767px) {
+  .closingFlow::before {
+    top: 38%;
+    right: -58%;
+    width: 125vw;
+    filter: blur(82px);
+  }
+}

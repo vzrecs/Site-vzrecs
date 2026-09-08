@@ -1,0 +1,18 @@
+.paragraph { position: relative; }
+.measure { display: block; }
+.word { display: inline-block; }
+.revealedLines { position: absolute; inset: 0; }
+.lineMask { display: block; overflow: hidden; padding: .14em .12em; margin: -.14em -.12em; }
+.line { display: block; white-space: pre; }
+.justifiedLine {
+  white-space: nowrap;
+  text-align: justify;
+  text-align-last: justify;
+}
+.titleMask { display: block; box-sizing: content-box; overflow: visible; padding: .24em .28em .24em .12em; margin: -.24em -.28em -.24em -.12em; }
+.titleMask h2 { display: block; }
+
+@media (prefers-reduced-motion: reduce) {
+  .line,
+  .titleMask h2 { animation: none !important; transform: none !important; opacity: 1 !important; filter: none !important; }
+}

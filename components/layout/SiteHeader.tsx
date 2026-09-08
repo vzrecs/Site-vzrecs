@@ -20,28 +20,45 @@ export function SiteHeader() {
 
   useEffect(() => {
     const sectionItems = navigationItems.filter((item) => item.href.startsWith("#"));
+    let animationFrame = 0;
 
     const updateActiveHref = () => {
-      const currentItem = sectionItems.reduce((current, item) => {
+      const marker = Math.min(Math.max(window.innerHeight * 0.28, 132), 260);
+      let currentItem = sectionItems[0];
+
+      for (const item of sectionItems) {
         const section = document.querySelector(item.href);
 
         if (!(section instanceof HTMLElement)) {
-          return current;
+          continue;
         }
 
-        return section.offsetTop <= window.scrollY + 140 ? item : current;
-      }, sectionItems[0]);
+        const bounds = section.getBoundingClientRect();
+        if (bounds.top <= marker) currentItem = item;
+        if (bounds.top <= marker && bounds.bottom > marker) break;
+      }
 
       setActiveHref(currentItem?.href ?? "#inicio");
     };
 
+    const scheduleUpdate = () => {
+      if (animationFrame) return;
+      animationFrame = window.requestAnimationFrame(() => {
+        animationFrame = 0;
+        updateActiveHref();
+      });
+    };
+
     updateActiveHref();
-    window.addEventListener("scroll", updateActiveHref, { passive: true });
-    window.addEventListener("hashchange", updateActiveHref);
+    window.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    window.addEventListener("hashchange", scheduleUpdate);
 
     return () => {
-      window.removeEventListener("scroll", updateActiveHref);
-      window.removeEventListener("hashchange", updateActiveHref);
+      if (animationFrame) window.cancelAnimationFrame(animationFrame);
+      window.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      window.removeEventListener("hashchange", scheduleUpdate);
     };
   }, []);
 
@@ -78,7 +95,7 @@ export function SiteHeader() {
         </Link>
 
         <nav
-          className="absolute left-1/2 flex -translate-x-1/2 items-center justify-center gap-2 rounded-full border border-white/10 bg-[#030303] p-2 shadow-[0_18px_60px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:gap-3"
+          className="absolute left-1/2 flex -translate-x-1/2 items-center justify-center gap-2.5 rounded-full border border-white/10 bg-[#030303] p-2.5 shadow-[0_18px_60px_rgba(0,0,0,0.48)] backdrop-blur-xl sm:gap-3.5"
           aria-label="Principal"
         >
           {navigationItems.map((item) => {
@@ -93,13 +110,21 @@ export function SiteHeader() {
                 rel={opensInNewTab ? "noopener noreferrer" : undefined}
                 aria-label={`Ir para ${item.label}`}
                 aria-current={isActive ? "page" : undefined}
-                className={`group/nav relative flex h-11 w-11 items-center overflow-hidden rounded-full border font-body text-sm font-bold uppercase tracking-[0.04em] text-white transition-[width,background-color,border-color,color] duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-red/80 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-black sm:h-12 sm:w-12 sm:hover:w-[10.5rem] sm:focus-visible:w-[10.5rem] ${
+                className={`group/nav relative flex h-12 w-12 items-center overflow-hidden rounded-full border font-body text-sm font-bold uppercase tracking-[0.04em] text-white transition-[width,background-color,border-color,color] duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-red/80 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-black sm:h-[3.25rem] sm:w-[3.25rem] sm:hover:w-[11rem] sm:focus-visible:w-[11rem] ${
                   isActive
-                    ? "border-accent-red/70 bg-accent-red/18"
+                    ? "border-white/10 bg-accent-red/10"
                     : "border-white/10 bg-[#050505] hover:border-accent-red/50 hover:bg-accent-red/12 focus-visible:border-accent-red/60 focus-visible:bg-accent-red/12"
                 }`}
               >
-                <span className="relative flex h-11 w-11 shrink-0 items-center justify-center sm:h-12 sm:w-12">
+                <span className="relative flex h-12 w-12 shrink-0 items-center justify-center sm:h-[3.25rem] sm:w-[3.25rem]">
+                  <span
+                    aria-hidden="true"
+                    className={`pointer-events-none absolute inset-[2px] rounded-full border-2 border-[#ff2323] transition-[opacity,transform] duration-300 motion-reduce:transition-none ${
+                      isActive
+                        ? "scale-100 opacity-100"
+                        : "scale-90 opacity-0"
+                    }`}
+                  />
                   <Image
                     src={item.icon}
                     alt=""
@@ -112,11 +137,6 @@ export function SiteHeader() {
                 <span className="hidden max-w-0 -translate-x-2 whitespace-nowrap opacity-0 transition-[max-width,opacity,transform] duration-[360ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none group-hover/nav:max-w-28 group-hover/nav:translate-x-0 group-hover/nav:opacity-100 group-focus-visible/nav:max-w-28 group-focus-visible/nav:translate-x-0 group-focus-visible/nav:opacity-100 sm:inline-block">
                   {item.label}
                 </span>
-                <span
-                  className={`absolute bottom-1.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-accent-red transition-opacity duration-300 motion-reduce:transition-none ${
-                    isActive ? "opacity-100" : "opacity-0"
-                  }`}
-                />
               </Link>
             );
           })}

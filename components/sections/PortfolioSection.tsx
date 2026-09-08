@@ -1,67 +1,163 @@
-import { siteContent } from "@/lib/site-content";
-import Link from "next/link";
-import { Reveal } from "@/components/ui/Reveal";
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState, type FocusEvent } from "react";
 import { SectionShell } from "@/components/ui/SectionShell";
-import { SeamlessVideo } from "@/components/ui/SeamlessVideo";
+import styles from "./ProductionAccordion.module.css";
+
+const productionStages = [
+  {
+    title: "Pré-produção",
+    description: "Criamos roteiros alinhados aos objetivos de cada marca e conduzimos a gravação com orientações de entonação, postura e comunicação, ajudando cada pessoa a transmitir mais clareza, naturalidade e autoridade diante da câmera."
+  },
+  {
+    title: "Equipamento próprio",
+    description: "Trabalhamos com estrutura própria de câmeras, lentes, drone, iluminação profissional e os demais equipamentos necessários para produzir imagens com qualidade e alto padrão técnico."
+  },
+  {
+    title: "Pós‑produção",
+    description: "Realizamos a edição em softwares profissionais, incluindo color grading, sound design e motion design, transformando o material captado em um conteúdo dinâmico, coeso e pronto para gerar impacto."
+  }
+] as const;
+
+function ProductionItem({
+  stage,
+  index,
+  active,
+  reduced,
+  hoverCapable,
+  setActiveIndex
+}: {
+  stage: (typeof productionStages)[number];
+  index: number;
+  active: boolean;
+  reduced: boolean;
+  hoverCapable: boolean;
+  setActiveIndex: (index: number | null) => void;
+}) {
+  return (
+    <motion.button
+      type="button"
+      className={styles.item}
+      data-active={active}
+      aria-expanded={active}
+      aria-controls={`production-description-${index}`}
+      initial={reduced ? false : { opacity: 0, y: 72, scale: 0.92, filter: "blur(8px)" }}
+      whileInView={reduced ? undefined : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+      viewport={{ once: false, amount: 0.22, margin: "0px 0px -6% 0px" }}
+      whileHover={reduced ? undefined : { y: -9, scale: 1.018 }}
+      whileTap={reduced ? undefined : { scale: 0.985 }}
+      transition={{
+        opacity: { duration: 0.56, delay: index * 0.1 },
+        filter: { duration: 0.62, delay: index * 0.1 },
+        y: { type: "spring", stiffness: 150, damping: 22, delay: index * 0.1 },
+        scale: { type: "spring", stiffness: 180, damping: 24, delay: index * 0.1 }
+      }}
+      onMouseEnter={() => hoverCapable && setActiveIndex(index)}
+      onFocus={() => setActiveIndex(index)}
+      onClick={() => setActiveIndex(active ? null : index)}
+    >
+      <span className={styles.fold} aria-hidden="true" />
+      <span className={styles.stageNumber} aria-hidden="true">0{index + 1}</span>
+      <span className={styles.toggle} aria-hidden="true"><span /></span>
+      <span className={styles.content}>
+        <span className={styles.itemTitle}>{stage.title}</span>
+        <span
+          id={`production-description-${index}`}
+          className={styles.description}
+          aria-hidden={!active}
+        >
+          {stage.description}
+        </span>
+      </span>
+    </motion.button>
+  );
+}
+
+function ProductionArrow({ index, reduced }: {
+  index: number;
+  reduced: boolean;
+}) {
+  return (
+    <motion.span
+      className={styles.handArrow}
+      initial={reduced ? false : { opacity: 0 }}
+      whileInView={reduced ? undefined : { opacity: 1 }}
+      viewport={{ once: false, amount: 0.5 }}
+      transition={{ duration: 0.35, delay: 0.16 + index * 0.1 }}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 120 40" focusable="false">
+        <motion.path
+          d="M4 20 L116 20"
+          initial={reduced ? false : { pathLength: 0 }}
+          whileInView={reduced ? undefined : { pathLength: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          transition={{ duration: 0.72, ease: "easeInOut", delay: 0.2 + index * 0.1 }}
+        />
+      </svg>
+    </motion.span>
+  );
+}
 
 export function PortfolioSection() {
-  const { portfolio, whatsappUrl } = siteContent;
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoverCapable, setHoverCapable] = useState(false);
+  const reduced = !!useReducedMotion();
+
+  useEffect(() => {
+    const query = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const update = () => setHoverCapable(query.matches);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
+  }, []);
+
+  const closeWhenFocusLeaves = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) setActiveIndex(null);
+  };
 
   return (
-    <SectionShell
-      id="videos"
-      className="relative scroll-mt-[-2rem] overflow-hidden bg-ink-black"
-    >
-      <div className="relative z-10 grid items-center gap-9 lg:grid-cols-[minmax(0,560px)_minmax(320px,380px)] lg:justify-center lg:gap-12 xl:gap-16">
-        <div className="contents lg:order-1 lg:flex lg:max-w-[560px] lg:self-stretch lg:flex-col">
-          <div className="contents lg:flex lg:flex-1 lg:flex-col lg:justify-center">
-            <Reveal y={30} blur={8} className="order-1 w-[min(82vw,340px)] justify-self-center text-center lg:w-auto lg:max-w-[560px] lg:justify-self-auto lg:text-left">
-            <h2
-              className="max-w-[560px] font-display text-6xl uppercase leading-[0.9] tracking-[-0.006em] text-white sm:text-7xl lg:text-[5.15rem] xl:text-[5.55rem]"
-              aria-label={portfolio.title}
-            >
-              Venda mais
-            </h2>
-            </Reveal>
-            <Reveal delay={0.12} y={22} blur={6} className="order-3 max-w-[560px]">
-              <p className="max-w-[540px] whitespace-pre-line text-justify text-[1.04rem] leading-7 text-ink-muted [text-align-last:left] lg:mt-7 lg:text-[1.14rem] lg:leading-8">
-                {portfolio.subtitle}
-              </p>
-            </Reveal>
-          </div>
-          <Reveal delay={0.16} y={18} blur={5} className="order-4 justify-self-center lg:justify-self-auto">
-            <div className="mt-12 flex w-[min(82vw,340px)] justify-center lg:mt-0 lg:block lg:w-auto">
-              <Link
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex min-h-12 origin-center items-center text-[0.98rem] font-bold uppercase tracking-[0.08em] text-white transition duration-300 ease-out after:absolute after:inset-x-0 after:bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-accent-red after:transition after:duration-500 after:ease-out hover:scale-[1.035] hover:text-white hover:after:scale-x-100 sm:text-[1.05rem] lg:origin-left"
-              >
-                SOLICITAR ORÇAMENTO
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-
-        <Reveal
-          delay={0.14}
-          x={18}
-          y={24}
-          scale={0.985}
-          className="order-2 w-[min(82vw,340px)] max-w-none justify-self-center lg:order-2 lg:w-[380px]"
+    <SectionShell id="videos" className={styles.section} innerClassName="max-w-[1440px]">
+      <div className={styles.layout}>
+        <motion.div
+          className={styles.introduction}
+          initial={reduced ? false : { opacity: 0, y: 32, filter: "blur(7px)" }}
+          whileInView={reduced ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
+          viewport={{ once: false, amount: 0.1 }}
+          transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
         >
-          <article className="overflow-hidden rounded-[6px] shadow-cinematic lg:translate-x-10 xl:translate-x-0">
-            <SeamlessVideo
-              src="/assets/videos/venda-mais-v2.mp4"
-              className="aspect-[9/16] w-full object-cover"
-              preload="metadata"
-              loopStart={0.18}
-              loopBeforeEnd={0.55}
-            />
-          </article>
-        </Reveal>
-      </div>
+          <h2>Da ideia à entrega final</h2>
+          <p>
+            Cuidamos de cada etapa para transformar ideias em conteúdos profissionais, estratégicos e alinhados aos objetivos de cada empresa.
+          </p>
+        </motion.div>
 
+        <div
+          className={styles.list}
+          onMouseLeave={() => hoverCapable && setActiveIndex(null)}
+          onBlur={closeWhenFocusLeaves}
+        >
+          {productionStages.map((stage, index) => {
+            const active = activeIndex === index;
+            return (
+              <div key={stage.title} className={styles.stageGroup}>
+                <ProductionItem
+                  stage={stage}
+                  index={index}
+                  active={active}
+                  reduced={reduced}
+                  hoverCapable={hoverCapable}
+                  setActiveIndex={setActiveIndex}
+                />
+                {index < productionStages.length - 1 && (
+                  <ProductionArrow index={index} reduced={reduced} />
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </SectionShell>
   );
 }

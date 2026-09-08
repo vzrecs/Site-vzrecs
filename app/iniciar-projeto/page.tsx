@@ -10,7 +10,7 @@ const anton = Anton({
 });
 
 export const metadata: Metadata = {
-  title: "VZ RECS | Iniciar um projeto",
+  title: "Vz Recs | Iniciar um projeto",
   robots: {
     index: false,
     follow: false

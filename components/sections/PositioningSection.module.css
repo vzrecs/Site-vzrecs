@@ -1,0 +1,142 @@
+.section {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: #050505;
+  color: #fff;
+  padding: clamp(112px, 12svh, 160px) clamp(32px, 8vw, 160px) 130px;
+  scroll-margin-top: 80px;
+}
+
+.scene {
+  position: relative;
+  display: grid;
+  max-width: 1240px;
+  margin-inline: auto;
+}
+
+.videoLayer {
+  position: relative;
+  grid-area: 1 / 1;
+  justify-self: end;
+  align-self: start;
+  z-index: 0;
+  margin-top: clamp(40px, 4vw, 64px);
+  top: -20px;
+  width: 50%;
+  aspect-ratio: 1080 / 1380;
+  overflow: visible;
+  border-radius: 20px;
+}
+
+.video { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5,5,5,.78), rgba(5,5,5,.34) 55%, rgba(5,5,5,.08)),
+    linear-gradient(0deg, rgba(5,5,5,.35), transparent 25%);
+}
+
+.textLayer {
+  position: relative;
+  left: clamp(-108px, -7.5vw, -48px);
+  grid-area: 1 / 1;
+  z-index: 2;
+  align-self: start;
+  padding-bottom: 40px;
+}
+.copy {
+  position: relative;
+  width: 54%;
+  max-width: 690px;
+  font-family: var(--font-positioning), sans-serif;
+  font-size: clamp(23.8px, 2.4225vw, 39.1px);
+  line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: -.045em;
+}
+.copy::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: -64px;
+  right: -190px;
+  bottom: -64px;
+  left: -96px;
+  pointer-events: none;
+  background: radial-gradient(ellipse 88% 76% at 22% 48%, rgba(5, 5, 5, .86) 0%, rgba(5, 5, 5, .68) 48%, rgba(5, 5, 5, .3) 70%, transparent 100%);
+  filter: blur(18px);
+}
+.paragraph {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  text-align: justify;
+  text-align-last: left;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  text-shadow: 0 2px 18px rgba(0,0,0,.7);
+}
+.paragraph + .paragraph { margin-top: 1.1em; }
+.measure { display: block; }
+.word { display: inline-block; }
+.revealedLines { position: absolute; inset: 0; }
+.lineMask { display: block; overflow: hidden; padding: .16em .18em; margin: -.16em -.18em; }
+.line { display: block; white-space: pre; }
+
+.handUnderline, .handCircle {
+  position: relative;
+  font-style: italic;
+}
+.handMark {
+  position: absolute;
+  pointer-events: none;
+  overflow: visible;
+  fill: none;
+  stroke: #ff2323;
+  stroke-width: 2px;
+  stroke-linecap: round;
+}
+.handMark path { vector-effect: non-scaling-stroke; }
+.handUnderline .handMark {
+  left: 0;
+  bottom: -.09em;
+  width: 100%;
+  height: .16em;
+}
+.handCircle .handMark {
+  left: -.14em;
+  top: -.08em;
+  width: calc(100% + .28em);
+  height: calc(100% + .2em);
+}
+@media (max-width: 767px) {
+  .section { padding: 100px 20px 90px; scroll-margin-top: 72px; }
+  .scene { display: flex; flex-direction: column; width: 100%; }
+  .videoLayer {
+    order: 2;
+    align-self: center;
+    top: 0;
+    width: calc(100% + 32px);
+    margin-top: 48px;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+  }
+  .shade {
+    background: linear-gradient(90deg, rgba(5,5,5,.84), rgba(5,5,5,.48) 68%, rgba(5,5,5,.24)),
+      linear-gradient(0deg, rgba(5,5,5,.86), transparent 45%);
+  }
+  .textLayer { order: 1; left: 0; width: 100%; padding-bottom: 0; }
+  .copy { width: 100%; font-size: clamp(17px, 4.76vw, 25.5px); line-height: 1.22; }
+  .copy::before { top: -42px; right: -64px; bottom: -42px; left: -34px; filter: blur(14px); }
+  .justifiedLine {
+    white-space: nowrap;
+    text-align: justify;
+    text-align-last: justify;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .videoLayer, .textLayer, .line { transform: none !important; }
+  .line { opacity: 1 !important; filter: none !important; }
+}

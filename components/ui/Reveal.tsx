@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
@@ -30,6 +30,45 @@ type RevealItemProps = {
 
 const easeOut = [0.22, 1, 0.36, 1] as const;
 
+type RevealState = "idle" | "hidden" | "visible";
+
+function useReliableInView(amount: number) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<RevealState>("idle");
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const requiredRatio = Math.min(Math.max(amount, 0.05), 0.5);
+    const rect = element.getBoundingClientRect();
+    const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    const visiblePixels = Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+    const visibleRatio = visiblePixels / Math.max(Math.min(rect.height, viewportHeight), 1);
+
+    if (visiblePixels > 0 && visibleRatio >= requiredRatio) {
+      setState("visible");
+      return;
+    }
+
+    setState("hidden");
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setState("visible");
+          observer.disconnect();
+        }
+      },
+      { threshold: requiredRatio, rootMargin: "0px 0px -8% 0px" }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [amount]);
+
+  return { ref, state };
+}
+
 export function Reveal({
   children,
   className = "",
@@ -42,28 +81,21 @@ export function Reveal({
   amount = 0.28
 }: RevealProps) {
   const shouldReduceMotion = useReducedMotion();
+  const { ref, state } = useReliableInView(amount);
+  const hidden = {
+    opacity: 0,
+    y,
+    x,
+    scale,
+    filter: `blur(${blur}px)`
+  };
+  const visible = { opacity: 1, y: 0, x: 0, scale: 1, filter: "blur(0px)" };
 
   return (
     <motion.div
-      initial={
-        shouldReduceMotion
-          ? false
-          : {
-              opacity: 0,
-              y,
-              x,
-              scale,
-              filter: `blur(${blur}px)`
-            }
-      }
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        x: 0,
-        scale: 1,
-        filter: "blur(0px)"
-      }}
-      viewport={{ once: true, amount, margin: "0px 0px -12% 0px" }}
+      ref={ref}
+      initial={false}
+      animate={shouldReduceMotion || state === "idle" ? visible : state === "visible" ? visible : hidden}
       transition={{
         duration: shouldReduceMotion ? 0.01 : duration,
         delay: shouldReduceMotion ? 0 : delay,
@@ -85,12 +117,13 @@ export function RevealGroup({
   amount = 0.24
 }: RevealGroupProps) {
   const shouldReduceMotion = useReducedMotion();
+  const { ref, state } = useReliableInView(amount);
 
   return (
     <motion.div
-      initial={shouldReduceMotion ? false : "hidden"}
-      whileInView="show"
-      viewport={{ once: true, amount, margin: "0px 0px -12% 0px" }}
+      ref={ref}
+      initial={false}
+      animate={shouldReduceMotion || state === "idle" ? "show" : state === "visible" ? "show" : "hidden"}
       variants={{
         hidden: {},
         show: {
