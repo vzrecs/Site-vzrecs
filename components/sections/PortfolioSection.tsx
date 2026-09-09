@@ -44,7 +44,7 @@ function ProductionItem({
       aria-controls={`production-description-${index}`}
       initial={reduced ? false : { opacity: 0, y: 72, scale: 0.92, filter: "blur(8px)" }}
       whileInView={reduced ? undefined : { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-      viewport={{ once: false, amount: 0.22, margin: "0px 0px -6% 0px" }}
+      viewport={{ once: true, amount: 0.22, margin: "0px 0px -6% 0px" }}
       whileHover={reduced ? undefined : { y: -9, scale: 1.018 }}
       whileTap={reduced ? undefined : { scale: 0.985 }}
       transition={{
@@ -54,7 +54,7 @@ function ProductionItem({
         scale: { type: "spring", stiffness: 180, damping: 24, delay: index * 0.1 }
       }}
       onMouseEnter={() => hoverCapable && setActiveIndex(index)}
-      onFocus={() => setActiveIndex(index)}
+      onFocus={event => event.currentTarget.matches(":focus-visible") && setActiveIndex(index)}
       onClick={() => setActiveIndex(active ? null : index)}
     >
       <span className={styles.fold} aria-hidden="true" />
@@ -74,25 +74,31 @@ function ProductionItem({
   );
 }
 
-function ProductionArrow({ index, reduced }: {
+function ProductionArrow({ index, reduced, final = false }: {
   index: number;
   reduced: boolean;
+  final?: boolean;
 }) {
   return (
     <motion.span
-      className={styles.handArrow}
-      initial={reduced ? false : { opacity: 0 }}
-      whileInView={reduced ? undefined : { opacity: 1 }}
-      viewport={{ once: false, amount: 0.5 }}
+      className={`${styles.handArrow} ${final ? styles.finalArrow : ""}`}
+      variants={reduced ? undefined : {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 }
+      }}
+      initial={reduced ? false : "hidden"}
+      whileInView={reduced ? undefined : "visible"}
+      viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.35, delay: 0.16 + index * 0.1 }}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 120 40" focusable="false">
+      <svg viewBox="0 0 120 40" preserveAspectRatio="none" focusable="false">
         <motion.path
           d="M4 20 L116 20"
-          initial={reduced ? false : { pathLength: 0 }}
-          whileInView={reduced ? undefined : { pathLength: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
+          variants={reduced ? undefined : {
+            hidden: { pathLength: 0 },
+            visible: { pathLength: 1 }
+          }}
           transition={{ duration: 0.72, ease: "easeInOut", delay: 0.2 + index * 0.1 }}
         />
       </svg>
@@ -127,7 +133,10 @@ export function PortfolioSection() {
           viewport={{ once: false, amount: 0.1 }}
           transition={{ duration: 0.62, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2>Da ideia à entrega final</h2>
+          <h2>
+            <span className={styles.titleLead}>Da ideia à entrega</span>{" "}
+            <span className={styles.titleFinal}>final</span>
+          </h2>
           <p>
             Cuidamos de cada etapa para transformar ideias em conteúdos profissionais, estratégicos e alinhados aos objetivos de cada empresa.
           </p>
@@ -150,9 +159,25 @@ export function PortfolioSection() {
                   hoverCapable={hoverCapable}
                   setActiveIndex={setActiveIndex}
                 />
-                {index < productionStages.length - 1 && (
-                  <ProductionArrow index={index} reduced={reduced} />
-                )}
+                <motion.span
+                  className={styles.tapHint}
+                  data-open={active}
+                  aria-hidden="true"
+                  initial={reduced ? false : { opacity: 0, y: 10 }}
+                  whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.65 }}
+                  transition={{ duration: 0.52, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+                >
+                  <svg className={styles.tapArrow} viewBox="0 0 12 12" focusable="false">
+                    <path d="M6 10V2M2.5 5.5 6 2l3.5 3.5" />
+                  </svg>
+                  {active ? "Toque para fechar" : "Toque para abrir"}
+                </motion.span>
+                <ProductionArrow
+                  index={index}
+                  reduced={reduced}
+                  final={index === productionStages.length - 1}
+                />
               </div>
             );
           })}

@@ -35,17 +35,18 @@
   text-shadow: none;
 }
 .noWrap { white-space: nowrap; }
+.titleLead,
+.titleFinal { display: inline; }
 .introduction p {
   width: min(100%, 700px);
-  margin: clamp(24px, 2.4vw, 34px) 0 0;
+  margin: clamp(24px, 2.4vw, 34px) auto 0;
   color: rgba(5, 5, 5, .76);
   font-size: clamp(19px, 1.55vw, 23px);
   font-weight: 700;
   line-height: 1.55;
   letter-spacing: -.025em;
   word-spacing: -.055em;
-  text-align: justify;
-  text-align-last: left;
+  text-align: center;
 }
 
 .list {
@@ -54,8 +55,8 @@
   grid-template-columns: minmax(0, 1fr) 116px minmax(0, 1fr) 116px minmax(0, 1fr);
   align-items: center;
   column-gap: clamp(36px, 3.6vw, 56px);
-  width: calc(100% + 64px);
-  transform: translateX(-32px);
+  width: 100%;
+  transform: none;
   overflow: visible;
   background: transparent;
 }
@@ -81,6 +82,7 @@
   stroke-linejoin: round;
   transform: rotate(180deg);
 }
+.finalArrow { display: none; }
 
 .item {
   position: relative;
@@ -190,6 +192,7 @@
   text-align: center;
   transition: color 180ms ease;
 }
+.tapHint { display: none; }
 .description {
   display: block;
   max-height: 0;
@@ -225,7 +228,10 @@
     height: 84px;
   }
   .handArrow svg { width: 116px; transform: rotate(180deg); }
-  .introduction h2 { max-width: 350px; font-size: clamp(46px, 14vw, 64px); }
+  .introduction h2 { max-width: none; font-size: clamp(38px, 8vw, 64px); }
+  .titleLead,
+  .titleFinal { display: block; }
+  .titleLead { white-space: nowrap; }
   .introduction p { margin-top: 24px; font-size: 19px; line-height: 1.5; }
   .item {
     aspect-ratio: auto;
@@ -262,17 +268,66 @@
   }
 }
 
+@media (min-width: 768px) and (max-width: 1199px) {
+  .list {
+    width: calc(100% - clamp(96px, 14vw, 180px));
+    max-width: 720px;
+    margin-inline: auto;
+  }
+}
+
 @media (max-width: 767px) {
   .list { gap: 12px; }
+  .stageGroup {
+    display: flex;
+    flex-direction: column;
+  }
   .item {
-    transition: min-height 320ms cubic-bezier(.76, 0, .24, 1), border-color 180ms ease, box-shadow 280ms ease;
+    min-height: 142px;
+    touch-action: manipulation;
+    transition: min-height 520ms cubic-bezier(.16, 1, .3, 1), border-color 240ms ease, box-shadow 420ms ease;
   }
-  .fold { transition-duration: 280ms; }
+  .item[data-active="true"] { min-height: 300px; }
+  .content { padding: 28px 24px; }
+  .tapHint {
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 22px;
+    color: rgba(5, 5, 5, .62);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: .04em;
+    text-align: center;
+    text-transform: none;
+    pointer-events: none;
+  }
+  .tapArrow {
+    width: 12px;
+    height: 12px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: transform 280ms cubic-bezier(.22, 1, .36, 1);
+  }
+  .tapHint[data-open="true"] .tapArrow { transform: rotate(180deg); }
+  .fold { transition-duration: 460ms; transition-timing-function: cubic-bezier(.16, 1, .3, 1); }
+  .description {
+    transform: translateY(-6px);
+    transition: max-height 480ms cubic-bezier(.16, 1, .3, 1), margin-top 480ms cubic-bezier(.16, 1, .3, 1), opacity 300ms ease, transform 360ms cubic-bezier(.16, 1, .3, 1), visibility 0s linear 320ms;
+  }
   .item[data-active="true"] .description {
-    transition: max-height 280ms cubic-bezier(.76, 0, .24, 1), margin-top 280ms cubic-bezier(.76, 0, .24, 1), opacity 220ms ease 30ms, visibility 0s linear;
+    transform: translateY(0);
+    transition: max-height 500ms cubic-bezier(.16, 1, .3, 1), margin-top 500ms cubic-bezier(.16, 1, .3, 1), opacity 360ms ease 55ms, transform 420ms cubic-bezier(.16, 1, .3, 1) 35ms, visibility 0s linear;
   }
-  .handArrow { height: 36px; }
-  .handArrow svg { width: 84px; }
+  .handArrow { height: 22px; margin-top: 0; }
+  .handArrow svg { width: min(185px, 100%); height: 22px; }
+  .finalArrow { display: flex; }
 }
 
 @media (prefers-reduced-motion: reduce) {

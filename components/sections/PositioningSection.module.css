@@ -39,7 +39,7 @@
 
 .textLayer {
   position: relative;
-  left: clamp(-108px, -7.5vw, -48px);
+  left: 0;
   grid-area: 1 / 1;
   z-index: 2;
   align-self: start;
@@ -50,7 +50,7 @@
   width: 54%;
   max-width: 690px;
   font-family: var(--font-positioning), sans-serif;
-  font-size: clamp(23.8px, 2.4225vw, 39.1px);
+  font-size: clamp(21px, 1.95vw, 31.5px);
   line-height: 1.14;
   font-weight: 700;
   letter-spacing: -.045em;
@@ -59,13 +59,14 @@
   content: "";
   position: absolute;
   z-index: 0;
-  top: -64px;
-  right: -190px;
-  bottom: -64px;
-  left: -96px;
+  top: -110px;
+  right: -280px;
+  bottom: -110px;
+  left: -140px;
   pointer-events: none;
-  background: radial-gradient(ellipse 88% 76% at 22% 48%, rgba(5, 5, 5, .86) 0%, rgba(5, 5, 5, .68) 48%, rgba(5, 5, 5, .3) 70%, transparent 100%);
-  filter: blur(18px);
+  border-radius: 50%;
+  background: radial-gradient(ellipse 78% 70% at 24% 50%, rgba(5, 5, 5, .88) 0%, rgba(5, 5, 5, .72) 42%, rgba(5, 5, 5, .38) 58%, rgba(5, 5, 5, .12) 70%, transparent 82%);
+  filter: blur(26px);
 }
 .paragraph {
   position: relative;
@@ -110,6 +111,18 @@
   width: calc(100% + .28em);
   height: calc(100% + .2em);
 }
+
+@media (min-width: 1200px) {
+  .textLayer {
+    left: clamp(-64px, -3.5vw, -48px);
+    top: clamp(28px, 2.5vw, 40px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .section { padding-right: 32px; padding-left: 32px; }
+}
+
 @media (max-width: 767px) {
   .section { padding: 100px 20px 90px; scroll-margin-top: 72px; }
   .scene { display: flex; flex-direction: column; width: 100%; }
