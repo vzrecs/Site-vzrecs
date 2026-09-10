@@ -1,6 +1,9 @@
 node_modules
 .next
+.next-dev
 out
 dist
 .env*.local
 *.tsbuildinfo
+/qa-carousel-*.png
+/qa-mobile-*.png

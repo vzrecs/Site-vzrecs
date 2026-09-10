@@ -130,9 +130,9 @@
     order: 2;
     align-self: center;
     top: 0;
-    width: calc(100% + 32px);
+    width: calc(100% + 8px);
     margin-top: 48px;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 9 / 16;
     border-radius: 12px;
   }
   .shade {

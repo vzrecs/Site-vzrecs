@@ -1,0 +1,90 @@
+ ⚠ Cross origin request detected from 10.0.0.96 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+ ⚠ Found a change in next.config.mjs. Restarting the server to apply the changes...
+ ⚠ Cross origin request detected from 127.0.0.1 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ⚠ Cross origin request detected from 10.0.0.96 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ./components/sections/useCarouselMotion.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\useCarouselMotion.ts
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/useCarouselMotion.ts
+./components/sections/ContentVideoCarousel.tsx
+./components/sections/PositioningSection.tsx
+ ⨯ ./components/sections/useCarouselMotion.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\useCarouselMotion.ts
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/useCarouselMotion.ts
+./components/sections/ContentVideoCarousel.tsx
+./components/sections/PositioningSection.tsx
+ ⨯ ./components/sections/useCarouselMotion.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\useCarouselMotion.ts
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/useCarouselMotion.ts
+./components/sections/ContentVideoCarousel.tsx
+./components/sections/PositioningSection.tsx
+ ⨯ ./components/sections/useCarouselMotion.ts
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\useCarouselMotion.ts
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/useCarouselMotion.ts
+./components/sections/ContentVideoCarousel.tsx
+./components/sections/PositioningSection.tsx
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ./components/sections/ContentVideoCarousel.tsx:5:1
+Module not found: Can't resolve './useAlwaysPlayingVideos'
+  3 | import { useRef } from "react";
+  4 | import { useCarouselMotion } from "./useCarouselMotion";
+> 5 | import { useAlwaysPlayingVideos } from "./useAlwaysPlayingVideos";
+    | ^
+  6 | import styles from "./ContentVideoCarousel.module.css";
+  7 |
+  8 | // Same order as 04-Identidade visual/05-Novos/Vídeos/Videos novos:
+
+https://nextjs.org/docs/messages/module-not-found
+
+Import trace for requested module:
+./components/sections/PositioningSection.tsx
+ ⨯ ./components/sections/ContentVideoCarousel.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\ContentVideoCarousel.tsx
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/ContentVideoCarousel.tsx
+./components/sections/PositioningSection.tsx
+ ⨯ ./components/sections/ContentVideoCarousel.tsx
+Error: 
+
+Caused by:
+    0: Failed to read source code from D:\Trabalho\Clientes\site vzrecs\components\sections\ContentVideoCarousel.tsx
+    1: O sistema não pode encontrar o arquivo especificado. (os error 2)
+
+Import trace for requested module:
+./components/sections/ContentVideoCarousel.tsx
+./components/sections/PositioningSection.tsx

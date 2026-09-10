@@ -1,6 +1,6 @@
-﻿.viewport {
+.viewport {
   --gap: 24px;
-  --card-width: calc((100% - 32px) / 3);
+  --card-width: 32%;
   --card-height: 100%;
   position: absolute;
   top: 0;
@@ -14,44 +14,67 @@
   -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 94%, transparent);
   mask-image: linear-gradient(90deg, transparent, #000 14%, #000 94%, transparent);
 }
-
-.track, .sequence, .fallback { display: flex; }
+.mediaPlaceholder,
+.mobileAsset {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #111 center / cover no-repeat;
+  pointer-events: none;
+}
+.mobileAsset {
+  background-image: url("/assets/videos/conteudo-novos/o-video-mobile.webp");
+}
+.mobileAsset .video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.track, .sequence { display: flex; }
 .track {
   width: max-content;
   height: var(--card-height);
   animation: drift var(--duration, 65s) linear infinite;
   will-change: transform;
-  transform: translateZ(0);
   backface-visibility: hidden;
-  contain: layout paint style;
 }
-.sequence {
-  flex: none;
-  gap: var(--gap);
-  padding-right: var(--gap);
-}
-.slide, .fallback img {
+.sequence { flex: none; gap: var(--gap); }
+.slide {
+  position: relative;
   flex: 0 0 var(--card-width);
   width: var(--card-width);
-  max-width: none;
   height: var(--card-height);
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 14px;
+  background-color: #111;
+  background-size: cover;
+  background-position: center;
+}
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
   object-fit: cover;
   object-position: center;
-  border: 0;
-  outline: 0;
-  border-radius: 14px;
-  box-shadow: none;
-  background: transparent;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  opacity: 1;
+  pointer-events: none;
+  -webkit-appearance: none;
 }
-.fallback { display: none; gap: var(--gap); }
-/* Each group includes its trailing gap: the second group exactly replaces the first. */
+.video::-webkit-media-controls,
+.video::-webkit-media-controls-enclosure,
+.video::-webkit-media-controls-panel,
+.video::-webkit-media-controls-play-button,
+.video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
 @keyframes drift {
   from { transform: translate3d(calc(-1 * var(--entry-offset)), 0, 0); }
   to { transform: translate3d(calc(-1 * var(--distance) - var(--entry-offset)), 0, 0); }
 }
-
 @media (max-width: 767px) {
   .viewport {
     right: 0;
@@ -59,10 +82,6 @@
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
     mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
   }
-  .slide, .fallback img { border-radius: 12px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .track { display: none; animation: none; }
-  .fallback { display: flex; }
+  .track { animation: none; }
+  .slide { border-radius: 12px; }
 }

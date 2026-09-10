@@ -150,7 +150,7 @@ export function PositioningSection() {
     <section ref={ref} id="posicionamento" aria-label="Conteúdo" className={`${styles.section} ${montserrat.variable}`}>
       <div className={styles.scene}>
         <motion.div className={styles.videoLayer} style={{ y: reduced ? 0 : videoY }} aria-hidden="true">
-          <ContentVideoCarousel reduced={reduced} />
+          <ContentVideoCarousel />
         </motion.div>
         <motion.div className={styles.textLayer} style={{ y: reduced ? 0 : textY }}>
           <div className={styles.copy}>

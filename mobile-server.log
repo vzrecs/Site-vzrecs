@@ -1,0 +1,238 @@
+
+> vz-recs-site@0.1.0 dev
+> next dev -H 0.0.0.0 -p 3000
+
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Ready in 10.3s
+ ○ Compiling / ...
+ ✓ Compiled / in 13.6s (1624 modules)
+ GET / 200 in 14393ms
+ GET / 200 in 122ms
+ ✓ Compiled in 539ms (1534 modules)
+ GET / 200 in 171ms
+ GET / 200 in 30ms
+ GET / 200 in 39ms
+ GET / 200 in 31ms
+ ✓ Compiled in 425ms (1534 modules)
+ ✓ Compiled in 292ms (1534 modules)
+ GET / 200 in 468ms
+ GET / 200 in 180ms
+ GET / 200 in 132ms
+ GET / 200 in 133ms
+ GET / 200 in 184ms
+ GET / 200 in 125ms
+ GET / 200 in 171ms
+ GET / 200 in 133ms
+ GET / 200 in 132ms
+ GET / 200 in 153ms
+ GET / 200 in 132ms
+ GET / 200 in 137ms
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+
+   We detected TypeScript in your project and reconfigured your tsconfig.json file for you.
+   The following suggested values were added to your tsconfig.json. These values can be changed to fit your project's needs:
+
+   	- include was updated to add '.next-dev/types/**/*.ts'
+
+ ✓ Ready in 1775ms
+ ○ Compiling / ...
+ ✓ Compiled / in 4.8s (1633 modules)
+ GET / 200 in 5319ms
+   ▲ Next.js 15.5.18
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+
+ ✓ Starting...
+ ✓ Ready in 1626ms
+ ○ Compiling / ...
+ ✓ Compiled / in 9.1s (1556 modules)
+ GET / 200 in 11392ms
+ GET / 200 in 167ms
+ GET / 200 in 245ms
+ ✓ Compiled in 565ms (1538 modules)
+ GET / 200 in 436ms
+ GET / 200 in 172ms
+ GET / 200 in 139ms
+ GET / 200 in 125ms
+ GET / 200 in 172ms
+ GET / 200 in 123ms
+ ✓ Compiled in 487ms (1538 modules)
+ ✓ Compiled in 293ms (1538 modules)
+ ✓ Compiled in 273ms (1547 modules)
+ ✓ Compiled in 350ms (1538 modules)
+ GET / 200 in 478ms
+ GET / 200 in 238ms
+ GET / 200 in 138ms
+ GET / 200 in 188ms
+ GET / 200 in 107ms
+ GET / 200 in 147ms
+ ✓ Compiled in 869ms (1538 modules)
+ GET / 200 in 329ms
+ GET / 200 in 161ms
+ ○ Compiling /_not-found ...
+ ✓ Compiled /_not-found in 1485ms (1543 modules)
+ GET /apple-touch-icon-precomposed.png 404 in 1747ms
+ GET / 200 in 57ms
+ GET / 200 in 149ms
+ GET / 200 in 109ms
+ ✓ Compiled in 536ms (1538 modules)
+ ✓ Compiled in 308ms (1538 modules)
+ GET / 200 in 387ms
+ GET / 200 in 176ms
+ GET / 200 in 163ms
+ GET / 200 in 123ms
+ GET / 200 in 202ms
+ GET / 200 in 160ms
+ GET / 200 in 206ms
+ GET / 200 in 191ms
+ GET / 200 in 183ms
+ GET / 200 in 188ms
+ GET / 200 in 235ms
+ GET / 200 in 143ms
+ GET / 200 in 156ms
+ GET / 200 in 135ms
+ GET / 200 in 130ms
+ GET / 200 in 124ms
+ GET / 200 in 128ms
+ ✓ Compiled in 500ms (1538 modules)
+ GET / 200 in 126ms
+ GET / 200 in 372ms
+ ✓ Compiled in 764ms (1547 modules)
+ GET / 200 in 1210ms
+ GET / 200 in 1178ms
+ ✓ Compiled in 455ms (1538 modules)
+ GET / 200 in 373ms
+ GET / 200 in 177ms
+ GET / 200 in 204ms
+ GET / 200 in 199ms
+ GET / 200 in 267ms
+ GET / 200 in 186ms
+ GET / 200 in 208ms
+ GET / 200 in 211ms
+ GET / 200 in 204ms
+ GET / 200 in 160ms
+ GET / 200 in 130ms
+ GET / 200 in 147ms
+ GET / 200 in 130ms
+ GET / 200 in 148ms
+ GET / 200 in 117ms
+ GET / 200 in 115ms
+ ✓ Compiled in 305ms (1538 modules)
+ ✓ Compiled in 199ms (689 modules)
+ GET / 200 in 628ms
+ ✓ Compiled in 671ms (1547 modules)
+ ✓ Compiled in 431ms (1538 modules)
+ GET / 200 in 199ms
+ GET / 200 in 329ms
+ GET / 200 in 192ms
+ GET / 200 in 171ms
+ GET / 200 in 211ms
+ GET / 200 in 141ms
+ GET / 200 in 209ms
+ GET / 200 in 107ms
+ GET / 200 in 109ms
+ GET / 200 in 116ms
+ ✓ Compiled in 325ms (1538 modules)
+ ✓ Compiled in 243ms (689 modules)
+ GET / 200 in 148ms
+ GET / 200 in 507ms
+ GET / 200 in 580ms
+ ✓ Compiled in 681ms (1547 modules)
+ ✓ Compiled in 457ms (1538 modules)
+ ✓ Compiled in 925ms (1538 modules)
+ GET / 200 in 155ms
+ ✓ Compiled in 339ms (1538 modules)
+ GET / 200 in 81ms
+ GET / 200 in 369ms
+ GET / 200 in 165ms
+ GET / 200 in 173ms
+ GET / 200 in 196ms
+ GET / 200 in 187ms
+ GET / 200 in 116ms
+ ✓ Compiled in 556ms (1538 modules)
+ GET / 200 in 142ms
+ ✓ Compiled in 452ms (1538 modules)
+ GET / 200 in 148ms
+ ✓ Compiled in 424ms (1547 modules)
+ GET / 200 in 79ms
+ ✓ Compiled in 264ms (1538 modules)
+ GET / 200 in 84ms
+ GET / 200 in 379ms
+ GET / 200 in 237ms
+ GET / 200 in 203ms
+ GET / 200 in 186ms
+ GET / 200 in 202ms
+ GET / 200 in 159ms
+ GET / 200 in 138ms
+ GET / 200 in 130ms
+ GET / 200 in 141ms
+ ✓ Compiled in 485ms (1536 modules)
+ GET / 200 in 124ms
+ ✓ Compiled in 365ms (1545 modules)
+ GET / 200 in 92ms
+ ✓ Compiled in 240ms (1536 modules)
+ GET / 200 in 95ms
+ GET / 200 in 263ms
+ ✓ Compiled in 304ms (1536 modules)
+ GET / 200 in 140ms
+ ✓ Compiled in 275ms (1545 modules)
+ GET / 200 in 78ms
+ ✓ Compiled in 151ms (688 modules)
+ ✓ Compiled in 168ms (688 modules)
+ GET / 200 in 173ms
+ GET / 200 in 37ms
+ GET / 200 in 284ms
+ GET / 200 in 167ms
+ GET / 200 in 164ms
+ ✓ Compiled in 252ms (1538 modules)
+ GET / 200 in 124ms
+ GET / 200 in 313ms
+ GET / 200 in 139ms
+ GET / 200 in 127ms
+ GET / 200 in 141ms
+ GET / 200 in 146ms
+ GET / 200 in 105ms
+ ✓ Compiled in 277ms (1538 modules)
+ GET / 200 in 132ms
+ ✓ Compiled in 401ms (1538 modules)
+ GET / 200 in 90ms
+ GET / 200 in 201ms
+ ✓ Compiled in 505ms (1538 modules)
+ GET / 200 in 130ms
+ ✓ Compiled in 504ms (1547 modules)
+ GET / 200 in 90ms
+ ✓ Compiled in 229ms (1538 modules)
+ GET / 200 in 75ms
+ GET / 200 in 350ms
+ GET / 200 in 147ms
+ GET / 200 in 145ms
+ GET / 200 in 228ms
+ GET / 200 in 164ms
+ GET / 200 in 116ms
+ ✓ Compiled in 485ms (1538 modules)
+ GET / 200 in 130ms
+ ✓ Compiled in 755ms (1538 modules)
+ GET / 200 in 111ms
+ GET / 200 in 226ms
+ ✓ Compiled in 298ms (1538 modules)
+ ✓ Compiled in 272ms (689 modules)
+ GET / 200 in 185ms
+ GET / 200 in 50ms
+ ✓ Compiled in 620ms (1547 modules)
+ GET / 200 in 110ms
+ ✓ Compiled in 510ms (1547 modules)
+ GET / 200 in 87ms
+ GET / 200 in 361ms
+ GET / 200 in 223ms
+ GET / 200 in 142ms
+ GET / 200 in 177ms
+ GET / 200 in 162ms
+ GET / 200 in 95ms
